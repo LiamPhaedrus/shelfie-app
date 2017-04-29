@@ -15,6 +15,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 group :development, :test do
@@ -23,7 +24,8 @@ group :development, :test do
   gem 'launchy', require: false
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda'
+  gem 'shoulda-matchers', require: false
+  gem "dotenv-rails"
   gem 'valid_attribute'
 end
 
