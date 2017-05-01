@@ -4,17 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
-
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class= "row columns">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div className="contain-to-grid full-top-bar sticky">
 
+    </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div className= "row columns">
       <%= yield %>
     </div>
   </body>

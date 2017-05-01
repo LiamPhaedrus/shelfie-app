@@ -19,6 +19,7 @@ require "capybara/rails"
 require "valid_attribute"
 
 RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
