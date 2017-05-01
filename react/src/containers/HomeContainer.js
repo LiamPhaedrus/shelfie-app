@@ -1,11 +1,11 @@
 import React, { Component }  from 'react';
+import { Link } from 'react-router';
 
 class HomeContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
-      books: []
+      name: ''
     }
 
   }
@@ -18,22 +18,19 @@ class HomeContainer extends Component {
       .then(response=> response.json())
       .then(parsed=> {
         this.setState({
-          name: parsed.user,
-          books: parsed.books
+          name: parsed.user
         })
       })
   }
 
   render () {
-    let bookTitles = this.state.books.map(book => {
-      return(
-        <li key={book.id}>{book.title}</li>
-      )
-    })
     return(
       <div>
         <h1>Hello {this.state.name}!</h1>
-
+        <span>
+          <Link to='/books' className="button">Your Books</Link>
+          <Link to='/books/new' className="button">Add Book</Link>
+        </span>
       </div>
     )
   }

@@ -1,4 +1,6 @@
-import React, { Component }  from 'react';
+import React, { Component }  from 'react'
+import { Link } from 'react-router'
+import BackButton from '../components/BackButton'
 
 class BooksContainer extends Component {
   constructor (props) {
@@ -36,6 +38,8 @@ class BooksContainer extends Component {
         <ul>
           {bookTitles}
         </ul>
+        <Link to='/books/new' className="button">Add Book</Link>
+        <BackButton />
       </div>
     )
   }
