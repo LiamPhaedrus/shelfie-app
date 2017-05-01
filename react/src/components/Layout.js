@@ -8,9 +8,7 @@ const Layout = (props) => {
       <div className="contain-to-grid full-top-bar sticky">
         <Topbar />
       </div>
-      <div className= "row columns">
-        {props.children}
-      </div>
+      {props.children}
     </div>
   )
 }

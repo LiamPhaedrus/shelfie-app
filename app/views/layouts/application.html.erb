@@ -13,12 +13,13 @@
 
   <body>
     <div className="contain-to-grid full-top-bar sticky">
-      
+
     </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-
+    <div className= "row columns">
+      <%= yield %>
+    </div>
   </body>
 </html>
