@@ -35,13 +35,13 @@ class NewBookFormContainer extends Component {
           isbn: this.state.isbn
         }
       }
+      this.sendNewBook(payload)
+      // this.handleFormClear(event)
     }
-    this.sendNewBook(payload)
-    this.handleFormClear(event)
   }
 
   sendNewBook (payload) {
-    fetch('api/v1/books', {
+    fetch('/api/v1/books', {
       credentials: 'include',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -98,8 +98,8 @@ class NewBookFormContainer extends Component {
       let newError = { isbn: 'ISBN must be a number' }
       this.setState({ errors: Object.assign(this.state.errors, newError) })
       return false
-    } else if (entry.length >= 13) {
-      let newError = { isbn: 'ISBN must be less than 13 digits' }
+    } else if (entry.length > 13) {
+      let newError = { isbn: 'ISBN cannot be more than 13 digits' }
       this.setState({ errors: Object.assign(this.state.errors, newError) })
       return false
     } else {

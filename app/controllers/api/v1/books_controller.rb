@@ -1,5 +1,5 @@
 class Api::V1::BooksController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:create, :index]
 
   def index
     user = current_user
