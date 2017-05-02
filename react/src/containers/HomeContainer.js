@@ -25,12 +25,20 @@ class HomeContainer extends Component {
 
   render () {
     return(
-      <div>
+      <div className="home-react">
         <h1>Hello {this.state.name}!</h1>
-        <span>
-          <Link to='/books' className="button">Your Books</Link>
-          <Link to='/books/new' className="button">Add Book</Link>
-        </span>
+        <div>
+          <Link to='/books' className="button react-left">Your Books</Link>
+          <Link to='/books/new' className="button react-right">Add Book</Link>
+        </div>
+        <div>
+          <Link to='/' className="button react-left">Shelf Arrangement</Link>
+          <Link to='#' className="button react-right">Add Shelf</Link>
+        </div>
+        <div>
+          <Link to='/#' className="button react-left">Move Books</Link>
+          <Link to='#' className="button react-right">Add Case</Link>
+        </div>
       </div>
     )
   }

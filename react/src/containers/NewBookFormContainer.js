@@ -1,5 +1,6 @@
 import React, { Component }  from 'react'
 import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 import BackButton from '../components/BackButton'
 import TextField from '../components/TextField'
 
@@ -18,7 +19,6 @@ class NewBookFormContainer extends Component {
     this.handleISBNChange = this.handleISBNChange.bind(this)
     this.handleFormClear = this.handleFormClear.bind(this)
     this.validateTitle = this.validateTitle.bind(this)
-    this.sendNewBook = this.sendNewBook.bind(this)
     this.validateISBN = this.validateISBN.bind(this)
   }
 
@@ -35,22 +35,9 @@ class NewBookFormContainer extends Component {
           isbn: this.state.isbn
         }
       }
-      this.sendNewBook(payload)
-      // this.handleFormClear(event)
+      this.props.addNewBook(payload)
+      this.handleFormClear(event)
     }
-  }
-
-  sendNewBook (payload) {
-    fetch('/api/v1/books', {
-      credentials: 'include',
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(parsed => {
-      console.log(parsed)
-    })
   }
 
   handleFormClear (event) {
@@ -147,7 +134,6 @@ class NewBookFormContainer extends Component {
             <input className="button" type="submit" value="Submit" />
           </div>
         </form>
-        <BackButton />
       </div>
     )
   }

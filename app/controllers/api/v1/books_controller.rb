@@ -9,12 +9,12 @@ class Api::V1::BooksController < ApplicationController
 
   def create
     book = Book.new(new_book_params)
-    binding.pry
     if book.save
       book.users << current_user
       render json: {
         status: 201,
-        message: ('Successfully added a book!')
+        message: ('Successfully added a book!'),
+        book: book
       }.to_json
     else
       flash[:notice] = 'Review failed to save'
