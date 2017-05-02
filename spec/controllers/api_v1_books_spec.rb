@@ -23,4 +23,16 @@ describe Api::V1::BooksController, type: :controller do
       expect(json_parsed_response["books"]).to have_content(@book_two.title)
     end
   end
+
+  describe "POST #create" do
+    let(:user) {create :user}
+
+    let(:correct_book_params) { { title: 'Feed', author: 'Mira Grant', isbn: '9780316081054' } }
+    let(:bad_params) { { title: '', isbn: '10' } }
+
+    it "user can successfully add a book JSON" do
+      sign_in(user)
+      expect { post :create, params: { book: correct_book_params} }.to change{ user.books.count }.by 1
+    end
+  end
 end
