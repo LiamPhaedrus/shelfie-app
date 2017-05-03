@@ -11,8 +11,8 @@ describe Api::V1::BooksController, type: :controller do
     end
 
     it 'it returns data to a signed in user' do
-      Collection.create(user: @user, book: @book)
-      Collection.create(user: @user, book: @book_two)
+      Placement.create(user: @user, book: @book)
+      Placement.create(user: @user, book: @book_two)
       sign_in(@user)
       get :index
 
