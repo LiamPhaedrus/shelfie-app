@@ -29,6 +29,7 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem "dotenv-rails"
   gem 'valid_attribute'
+  gem 'dotenv-rails'
 end
 
 group :production do

@@ -5,6 +5,7 @@ class Book < ApplicationRecord
     numericality: { only_integer: true },
     allow_nil: true
 
-  has_many :collections
-  has_many :users, through: :collections
+  has_many :placements
+  has_many :shelves, through: :placements
+  has_many :users, through: :placements
 end
