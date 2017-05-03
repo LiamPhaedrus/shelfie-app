@@ -30,9 +30,21 @@ describe Api::V1::BooksController, type: :controller do
     let(:correct_book_params) { { title: 'Feed', author: 'Mira Grant', isbn: '9780316081054' } }
     let(:bad_params) { { title: '', isbn: '10' } }
 
-    it "user can successfully add a book JSON" do
+    it "user can successfully add a book and gets back JSON" do
       sign_in(user)
       expect { post :create, params: { book: correct_book_params} }.to change{ user.books.count }.by 1
+    end
+
+    it "returns an error when payload is incorrect" do
+      sign_in(user)
+      post :create, params: { book: bad_params }
+
+      expect(response.status).to eq 400
+      expect(json_parsed_response.keys).to have_content('error')
+      expect(json_parsed_response['error']).to have_content({
+        "title"=>["can't be blank"],
+        "isbn"=>["is too short (minimum is 10 characters)"]
+      })
     end
   end
 end
