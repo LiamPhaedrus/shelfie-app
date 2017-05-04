@@ -5,8 +5,7 @@ class Api::V1::ShelvesController < ApplicationController
     if current_user
       render json: {
         shelves: shelves_info(current_user.id),
-        # books: book_info(current_user.id)
-        books: Placement.where(user: current_user)
+        books: book_info(current_user.id)
       }
     end
   end
@@ -20,7 +19,6 @@ class Api::V1::ShelvesController < ApplicationController
       hash[:id] = shelf.id
       hash[:name] = shelf.name
       hash[:size] = shelf.size
-      hash[:user] = id
       hash[:bookIds] = shelf.books.pluck(:id)
       shelves << hash
     end
@@ -29,13 +27,13 @@ class Api::V1::ShelvesController < ApplicationController
 
   def book_info(id)
     books = []
-    Placement.where(user_id: id).each do |place|
+    Placement.where(user_id: id).each do |placed|
       hash = {}
-      hash[:id] = place.book_id
-      hash[:title] = place.book.title
-      hash[:author] = place.book.author
-      hash[:spot] = place.spot
-      hash[:shelfId] = place.shelf_id
+      hash[:id] = placed.id
+      hash[:title] = placed.book.title
+      hash[:author] = placed.book.author
+      hash[:spot] = placed.spot
+      hash[:shelfId] = placed.shelf_id
       books << hash
     end
     books
