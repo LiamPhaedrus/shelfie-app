@@ -27,11 +27,11 @@ class DragContainer extends Component {
   }
 
   handleSpotPlace (book, spot, shelf) {
-    // let findBook = (obj) => {
-    //   return obj.id === book
-    // }
-    // console.log(`book id- ${book}; spot id- ${spot}; shelf id- ${shelf}`)
-    // console.log(this.state.books.find(findBook))
+    let findBook = (obj) => {
+      return obj.id === book
+    }
+    console.log(`book id- ${book}; spot id- ${spot}; shelf id- ${shelf}`)
+    console.log(this.state.books.find(findBook))
     let payload = {placement: {id: book, spot: spot, shelf_id: shelf}}
     fetch(`/api/v1/placements/${book}`, {
       credentials: 'include',
