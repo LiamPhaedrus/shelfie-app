@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170504205922) do
   create_table "shelves", force: :cascade do |t|
     t.string   "name",       default: "shelf", null: false
     t.integer  "size",       default: 20,      null: false
+    t.integer  "case_id",                      null: false
     t.integer  "user_id",                      null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
