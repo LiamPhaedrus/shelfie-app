@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import ShelfContainer from './ShelfContainer'
-import BookListContainer from './BookListContainer'
+import MoveBookList from './MoveBookList'
 
 class DragContainer extends Component {
   constructor (props) {
@@ -74,7 +74,7 @@ class DragContainer extends Component {
     return(
       <div className="dnd-container">
         {shelves}
-        <BookListContainer
+        <MoveBookList
           books={unplacedBooks}
           id={null}
         />

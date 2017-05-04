@@ -46,7 +46,7 @@ function collect(connect, monitor) {
   }
 }
 
-class BookListContainer extends Component {
+class MoveBookList extends Component {
   render () {
     const { position, isOver, canDrop, connectDropTarget } = this.props
     let books = this.props.books.map(book=> {
@@ -68,4 +68,4 @@ class BookListContainer extends Component {
   }
 }
 
-export default DropTarget(Types.BOOK, listTarget, collect)(BookListContainer)
+export default DropTarget(Types.BOOK, listTarget, collect)(MoveBookList)

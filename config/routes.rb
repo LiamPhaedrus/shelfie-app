@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/books', to: 'static_pages#index'
   get '/books/*path', to: 'static_pages#index'
   get '/shelves', to: 'static_pages#index'
+  get '/shelves/*path', to: 'static_pages#index'
 
   namespace :api do
     namespace :v1 do

@@ -4,13 +4,13 @@ import Layout from './components/Layout'
 import BooksContainer from './containers/BooksContainer'
 import NewBookFormContainer from './containers/NewBookFormContainer'
 import NewShelfFormContainer from './containers/NewShelfFormContainer'
-import HomeContainer from './containers/HomeContainer'
+import DashHomePage from './containers/DashHomePage'
 import DragContainer from './containers/DragContainer'
 
 const App = (props) => {
   return (
     <Router history={browserHistory}>
-      <Route path='/' component={HomeContainer}/>
+      <Route path='/' component={DashHomePage}/>
       <Route path='/books' component={BooksContainer}/>
       <Route path='/books/new' component={NewBookFormContainer}/>
       <Route path='/shelves' component={DragContainer}/>
