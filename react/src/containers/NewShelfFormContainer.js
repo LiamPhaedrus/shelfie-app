@@ -10,11 +10,16 @@ class NewShelfFormContainer extends Component {
     this.state = {
       errors: {},
       shelves: [],
-      size: '20',
-      name: 'Shelf'
+      name: 'shelf',
+      size: '20'
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSizeChange = this.handleSizeChange.bind(this)
+  }
+
+  handleSizeChange (event) {
+    this.setState({ size: event.target.value })
   }
 
   handleNameChange (event) {
@@ -37,6 +42,12 @@ class NewShelfFormContainer extends Component {
             label="Shelf Name"
             name="form-shelfname"
             handlerFunction={this.handleNameChange}
+          />
+          <TextField
+            content={this.state.size}
+            label="Shelf Size"
+            name="form-shelfsize"
+            handlerFunction={this.handleSizeChange}
           />
 
           <div className="button-group">
