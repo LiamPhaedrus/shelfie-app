@@ -1,3 +1,21 @@
-.button.react-left {
-  margin-right: 5px;
+$dark-blue: #151A51;
+$pop-blue: #6CD4F6;
+$brown: #6D3109;
+$beige: #EAE2CF;
+$offwhite: #F8F3EB;
+
+button.button, input.button, a.button {
+  background-color: $dark-blue;
+  color: $pop-blue;
+  &:hover {
+    color: lighten($pop-blue, 10%);
+    background-color: lighten($dark-blue, 7%);
+  }
+  &:focus {
+    color: lighten($pop-blue, 10%);
+    background-color: lighten($dark-blue, 7%);
+  }
+  &.react-left {
+    margin-right: 5px;
+  }
 }
