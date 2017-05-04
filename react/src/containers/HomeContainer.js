@@ -14,11 +14,11 @@ class HomeContainer extends Component {
           <Link to='#' className="button react-right">Thing</Link>
         </div>
         <div>
-          <Link to='/shelves' className="button react-left">Shelf Arrangement</Link>
+          <Link to='#' className="button react-left">Shelf Arrangement</Link>
           <Link to='#' className="button react-right">Add Shelf</Link>
         </div>
         <div>
-          <Link to='#' className="button react-left">Move Books</Link>
+          <Link to='/shelves' className="button react-left">Move Books</Link>
           <Link to='#' className="button react-right">Add Case</Link>
         </div>
       </div>
