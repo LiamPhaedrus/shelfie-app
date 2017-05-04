@@ -1,0 +1,41 @@
+/*palette:
+dark blue- #151A51
+pop blue- #6CD4F6
+brown - #6D3109
+beige - #EAE2CF
+off white - #F8F3EB
+*/
+@import url(https://fonts.googleapis.com/css?family=Merriweather|Oswald);
+
+$dark-blue: #151A51;
+$pop-blue: #6CD4F6;
+$brown: #6D3109;
+$beige: #EAE2CF;
+$offwhite: #F8F3EB;
+
+body {
+  font-family: 'Merriweather', serif;
+  color: $brown;
+  // background-color: $offwhite;
+  background-color: lighten($offwhite, 0%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+
+}
+
+a {
+  color: $dark-blue;
+  &:hover {
+    color: lighten($dark-blue, 16%);
+  }
+}
+
+.top-bar {
+  background-color: $beige;
+}
+
+.top-bar ul {
+  @extend .top-bar
+}
