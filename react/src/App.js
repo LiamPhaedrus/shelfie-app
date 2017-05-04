@@ -3,6 +3,7 @@ import { Route, IndexRoute, Router, browserHistory } from 'react-router'
 import Layout from './components/Layout'
 import BooksContainer from './containers/BooksContainer'
 import NewBookFormContainer from './containers/NewBookFormContainer'
+import NewShelfFormContainer from './containers/NewShelfFormContainer'
 import HomeContainer from './containers/HomeContainer'
 import DragContainer from './containers/DragContainer'
 
@@ -13,6 +14,7 @@ const App = (props) => {
       <Route path='/books' component={BooksContainer}/>
       <Route path='/books/new' component={NewBookFormContainer}/>
       <Route path='/shelves' component={DragContainer}/>
+      <Route path='/shelves/new' component={NewShelfFormContainer}/>
     </Router>
   );
 }

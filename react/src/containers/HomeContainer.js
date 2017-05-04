@@ -15,7 +15,7 @@ class HomeContainer extends Component {
         </div>
         <div>
           <Link to='#' className="button react-left">Shelf Arrangement</Link>
-          <Link to='#' className="button react-right">Add Shelf</Link>
+          <Link to='/shelves/new' className="button react-right">Add Shelf</Link>
         </div>
         <div>
           <Link to='/shelves' className="button react-left">Move Books</Link>
