@@ -35,7 +35,7 @@ class NewShelfFormContainer extends Component {
   render () {
     return(
       <div className='medium-9 medium-centered columns'>
-        <h1>Add A Shelf</h1>
+        <h2>Add A Shelf</h2>
         <form className='new-shelf-form callout' onSubmit={this.handleSubmit}>
           <TextField
             content={this.state.name}

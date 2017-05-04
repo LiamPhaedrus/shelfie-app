@@ -4,6 +4,7 @@ class Shelf < ApplicationRecord
   validates :user_id, presence: true
 
   belongs_to :user
+  belongs_to :case
   has_many :placements
   has_many :books, through: :placements
 end

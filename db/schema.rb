@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503002900) do
+ActiveRecord::Schema.define(version: 20170504205922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20170503002900) do
     t.string   "isbn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cases", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "units",      default: 1, null: false
+    t.string   "location"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_cases_on_user_id", using: :btree
   end
 
   create_table "placements", force: :cascade do |t|
