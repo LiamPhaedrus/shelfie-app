@@ -18,6 +18,7 @@ class NewCase extends Component {
     this.handleSubmitCase = this.handleSubmitCase.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
+    this.handleFetch = this.handleFetch.bind(this)
   }
 
   handleNameChange (event) {
@@ -35,13 +36,27 @@ class NewCase extends Component {
   handleSubmitCase (event) {
     event.preventDefault()
     let payload = {
-      case: {
+      bookcase: {
         name: this.state.name,
         location: this.state.location
       },
       shelves: this.state.shelves
     }
     console.log(payload)
+    this.handleFetch(payload)
+  }
+
+  handleFetch (payload) {
+    fetch('/api/v1/cases', {
+      credentials: 'include',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
   }
 
   render () {
@@ -52,7 +67,7 @@ class NewCase extends Component {
         </div>
       )
     })
-
+    console.log(this.state.shelves)
     return(
       <div className='build-case'>
         <h1>Build Bookcase</h1>

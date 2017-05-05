@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :books, only: [:index, :create]
       resources :shelves, only: [:index, :show]
       resources :placements, only: [:update]
+      resources :cases, only: [:index, :create]
     end
   end
 end

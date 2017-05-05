@@ -14,12 +14,12 @@ class DashHomePage extends Component {
           <Link to='/shelves' className="button react-right">Move Books</Link>
         </div>
         <div>
-          <Link to='#' className="button react-left">Thing One</Link>
+          <Link to='/books/search' className="button react-left">Search Books</Link>
           <Link to='#' className="button react-right">Thing Two</Link>
         </div>
         <div>
           <Link to='/cases/new' className="button react-left">Build Bookcase</Link>
-          <Link to='#' className="button react-right">See Bookcases</Link>
+          <Link to='/cases' className="button react-right">See Bookcases</Link>
         </div>
       </div>
     )

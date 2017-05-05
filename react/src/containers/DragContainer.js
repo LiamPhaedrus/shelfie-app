@@ -3,6 +3,7 @@ import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import ShelfContainer from './ShelfContainer'
 import MoveBookList from './MoveBookList'
+import BackButton from '../components/BackButton'
 
 class DragContainer extends Component {
   constructor (props) {
@@ -78,6 +79,7 @@ class DragContainer extends Component {
           books={unplacedBooks}
           id={null}
         />
+        <BackButton />
       </div>
     )
   }
