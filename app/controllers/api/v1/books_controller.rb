@@ -7,6 +7,11 @@ class Api::V1::BooksController < ApplicationController
     render json: { user: user.name, books: books }
   end
 
+  def show
+    book = Placement.where({user: current_user, book_id: params[:id]})
+    render json: book[0]
+  end
+
   def create
     book = Book.new(new_book_params)
     if book.save

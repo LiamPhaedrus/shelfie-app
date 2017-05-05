@@ -6,11 +6,13 @@ class Api::V1::PlacementsController < ApplicationController
       place = Placement.find(update_params['id'])
 
       if place.update!(spot: update_params['spot'], shelf_id: update_params['shelf_id'])
+        # @places = Placement.where(user: current_user)
         render json: {
           status: 201,
           message: ("You moved the book"),
           shelves: shelves_info(current_user.id),
           books: book_info(current_user.id)
+          # books: @places
         }.to_json
       else
         render json: {

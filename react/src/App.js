@@ -8,17 +8,19 @@ import DashHomePage from './containers/DashHomePage'
 import DragContainer from './containers/DragContainer'
 import ShowCases from './containers/ShowCases'
 import SearchContainer from './containers/SearchContainer'
+import BookShowContainer from './containers/BookShowContainer'
 
 const App = (props) => {
   return (
     <Router history={browserHistory}>
-      <Route path='/' component={DashHomePage}/>
-      <Route path='/books' component={BooksContainer}/>
-      <Route path='/books/new' component={NewBookFormContainer}/>
-      <Route path='/shelves' component={DragContainer}/>
-      <Route path='/cases/new' component={NewCase}/>
-      <Route path='/cases' component={ShowCases}/>
-      <Route path='/books/search' component={SearchContainer}/>
+      <Route path='/' component={DashHomePage} />
+      <Route path='/books' component={BooksContainer} />
+      <Route path='/books/new' component={NewBookFormContainer} />
+      <Route path='/shelves' component={DragContainer} />
+      <Route path='/cases/new' component={NewCase} />
+      <Route path='/cases' component={ShowCases} />
+      <Route path='/books/search' component={SearchContainer} />
+      <Route path='/books/:id' component={BookShowContainer} />
     </Router>
   );
 }
