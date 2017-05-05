@@ -42,7 +42,6 @@ class NewCase extends Component {
       },
       shelves: this.state.shelves
     }
-    console.log(payload)
     this.handleFetch(payload)
   }
 
