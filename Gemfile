@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development do
   gem 'listen', '~> 3.1'
@@ -29,7 +30,6 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem "dotenv-rails"
   gem 'valid_attribute'
-  gem 'dotenv-rails'
 end
 
 group :production do

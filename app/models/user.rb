@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :shelves
+  has_many :cases
   has_many :placements
   has_many :books, through: :placements
 

@@ -24,7 +24,7 @@ class BookListed extends Component {
     const { connectDragSource, isDragging, id, title, author } = this.props
     return connectDragSource(
       <div className='book-drag'>
-        {title} by {author}
+        <span className='title-strong'>{title}</span> by {author}
       </div>
     )
   }

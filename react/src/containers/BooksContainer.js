@@ -7,7 +7,6 @@ class BooksContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
       books: []
     }
     this.addNewBook = this.addNewBook.bind(this)
@@ -21,7 +20,6 @@ class BooksContainer extends Component {
       .then(response=> response.json())
       .then(parsed=> {
         this.setState({
-          name: parsed.user,
           books: parsed.books
         })
       })
@@ -41,22 +39,22 @@ class BooksContainer extends Component {
   }
 
   render () {
-    let bookTitles = this.state.books.map(book => {
+    let bookList = this.state.books.map(book => {
       let author = ''
       if (book.author) {
         author = `by ${book.author}`
       }
       return(
-        <li key={"book" + book.id}>{book.title} {author}</li>
+        <li key={"book" + book.id}><span className='title-strong'>{book.title}</span> {author}</li>
       )
     })
     return(
       <div id="top-all-books">
-        <h1>All of {this.state.name + "'s"} Books</h1>
+        <h1>Your Books</h1>
         <a href='#addbook' className="button react-left">Add Book</a>
         <BackButton />
         <ul>
-          {bookTitles}
+          {bookList}
         </ul>
         <div id='addbook'>
           <NewBookFormContainer

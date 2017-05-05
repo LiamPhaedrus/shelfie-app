@@ -15,5 +15,6 @@
  *= require foundation_and_overrides
  *= require main.scss
  *= require buttons.scss
+ *= require forms.scss
 
  */
