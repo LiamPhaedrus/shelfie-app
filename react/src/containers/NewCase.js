@@ -18,7 +18,17 @@ class NewCase extends Component {
     this.handleSubmitCase = this.handleSubmitCase.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
+    this.handleFormClear = this.handleFormClear.bind(this)
     this.handleFetch = this.handleFetch.bind(this)
+  }
+
+  handleFormClear (event) {
+    event.preventDefault()
+    this.setState({
+      shelves: [],
+      location: '',
+      name: ''
+    })
   }
 
   handleNameChange (event) {
@@ -83,7 +93,10 @@ class NewCase extends Component {
           <NewShelfFormContainer
             handleShelfAdd={this.handleShelfAdd}
           />
-          <input className="button" type="submit" value="Submit" />
+          <div className="button-group">
+            <input className="button" type="submit" value="Submit" />
+            <button className="button" onClick={this.handleFormClear}>Clear</button>
+          </div>
         </form>
         <BackButton />
       </div>
