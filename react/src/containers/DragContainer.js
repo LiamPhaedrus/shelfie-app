@@ -47,7 +47,6 @@ class DragContainer extends Component {
   }
 
   render () {
-
     let unplacedBooks = []
     this.state.books.forEach(book => {
       if (book.shelfId === null) {

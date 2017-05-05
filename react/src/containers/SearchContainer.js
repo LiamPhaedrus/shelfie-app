@@ -2,6 +2,7 @@ import React, { Component }  from 'react'
 import { Link } from 'react-router'
 import TextField from '../components/TextField'
 import ResultsContainer from './ResultsContainer'
+import BackButton from '../components/BackButton'
 
 class SearchContainer extends Component {
   constructor (props) {
@@ -34,6 +35,7 @@ class SearchContainer extends Component {
         <ResultsContainer
           searchTerm={this.state.searchTerm}
         />
+        <BackButton />
       </div>
     )
   }
