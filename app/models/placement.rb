@@ -6,8 +6,4 @@ class Placement < ApplicationRecord
   validates :spot, numericality: { only_integer: true }, allow_nil: true
   validates :user_id, presence: true
   validates :book_id, presence: true
-
-  def spot_check
-
-  end
 end

@@ -25,11 +25,10 @@ ActiveRecord::Schema.define(version: 20170504205922) do
 
   create_table "cases", force: :cascade do |t|
     t.string   "name"
-    t.integer  "units",      default: 1, null: false
     t.string   "location"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cases_on_user_id", using: :btree
   end
 

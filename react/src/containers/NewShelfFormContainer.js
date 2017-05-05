@@ -1,7 +1,6 @@
 import React, { Component }  from 'react'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
-import BackButton from '../components/BackButton'
 import TextField from '../components/TextField'
 
 class NewShelfFormContainer extends Component {
@@ -9,12 +8,11 @@ class NewShelfFormContainer extends Component {
     super(props)
     this.state = {
       errors: {},
-      shelves: [],
       name: 'shelf',
       size: '20'
     }
     this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
     this.handleSizeChange = this.handleSizeChange.bind(this)
   }
 
@@ -26,17 +24,18 @@ class NewShelfFormContainer extends Component {
     this.setState({ name: event.target.value })
   }
 
-  handleSubmit (event) {
+  handleAdd (event) {
     event.preventDefault()
-    console.log(this.state.size)
-    console.log(this.state.name)
+    let shelfInfo = { name: this.state.name, size: this.state.size }
+
+    this.props.handleShelfAdd(shelfInfo)
   }
 
   render () {
     return(
-      <div className='medium-9 medium-centered columns'>
-        <h2>Add A Shelf</h2>
-        <form className='new-shelf-form callout' onSubmit={this.handleSubmit}>
+      <div className='medium-centered'>
+        <h3>Add A Shelf</h3>
+        <div className='new-shelf'>
           <TextField
             content={this.state.name}
             label="Shelf Name"
@@ -50,11 +49,8 @@ class NewShelfFormContainer extends Component {
             handlerFunction={this.handleSizeChange}
           />
 
-          <div className="button-group">
-            <input className="button" type="submit" value="Submit" />
-          </div>
-        </form>
-        <BackButton />
+          <button className="button" onClick={this.handleAdd}>Add Shelf</button>
+        </div>
       </div>
     )
   }

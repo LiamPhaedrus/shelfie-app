@@ -18,8 +18,8 @@ class DashHomePage extends Component {
           <Link to='#' className="button react-right">Thing Two</Link>
         </div>
         <div>
-          <Link to='#' className="button react-left">Build Bookcase</Link>
-          <Link to='/shelves/new' className="button react-right">Add Shelf</Link>
+          <Link to='/cases/new' className="button react-left">Build Bookcase</Link>
+          <Link to='#' className="button react-right">See Bookcases</Link>
         </div>
       </div>
     )
