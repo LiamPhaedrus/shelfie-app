@@ -9,17 +9,25 @@ class DashHomePage extends Component {
     return(
       <div className="home-react">
         <h1>Dashboard</h1>
-        <div>
-          <Link to='/books' className="button react-left">Your Books</Link>
-          <Link to='/shelves' className="button react-right">Move Books</Link>
-        </div>
-        <div>
-          <Link to='/books/search' className="button react-left">Search Books</Link>
-          <Link to='#' className="button react-right">Thing Two</Link>
-        </div>
-        <div>
-          <Link to='/cases/new' className="button react-left">Build Bookcase</Link>
-          <Link to='/cases' className="button react-right">See Bookcases</Link>
+        <div className='row'>
+          <div className='dash-outer medium-4 columns'>
+            <Link to='/books' className='dash-tile'>Your Books</Link>
+          </div>
+          <div className='dash-outer medium-4 columns'>
+            <Link to='/shelves' className='dash-tile'>Move Books</Link>
+          </div>
+          <div className='dash-outer medium-4 columns'>
+            <Link to='/books/search' className='dash-tile'>Search Books</Link>
+          </div>
+          <div className='dash-outer medium-4 columns'>
+            <Link to='#' className='dash-tile'>Thing Two</Link>
+          </div>
+          <div className='dash-outer medium-4 columns'>
+            <Link to='/cases/new' className='dash-tile'>Build Bookcase</Link>
+          </div>
+          <div className='dash-outer medium-4 columns'>
+            <Link to='/cases' className='dash-tile'>See Bookcases</Link>
+          </div>
         </div>
       </div>
     )
