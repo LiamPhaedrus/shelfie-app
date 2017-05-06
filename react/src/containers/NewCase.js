@@ -53,6 +53,7 @@ class NewCase extends Component {
       shelves: this.state.shelves
     }
     this.handleFetch(payload)
+
   }
 
   handleFetch (payload) {
@@ -64,7 +65,9 @@ class NewCase extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      if (data.status <= 299) {
+        browserHistory.push(`/cases`)
+      }
     })
   }
 
@@ -76,7 +79,6 @@ class NewCase extends Component {
         </div>
       )
     })
-    console.log(this.state.shelves)
     return(
       <div className='build-case'>
         <h1>Build Bookcase</h1>
