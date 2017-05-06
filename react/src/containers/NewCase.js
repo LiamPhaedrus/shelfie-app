@@ -18,7 +18,17 @@ class NewCase extends Component {
     this.handleSubmitCase = this.handleSubmitCase.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
+    this.handleFormClear = this.handleFormClear.bind(this)
     this.handleFetch = this.handleFetch.bind(this)
+  }
+
+  handleFormClear (event) {
+    event.preventDefault()
+    this.setState({
+      shelves: [],
+      location: '',
+      name: ''
+    })
   }
 
   handleNameChange (event) {
@@ -43,6 +53,7 @@ class NewCase extends Component {
       shelves: this.state.shelves
     }
     this.handleFetch(payload)
+
   }
 
   handleFetch (payload) {
@@ -54,7 +65,9 @@ class NewCase extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      if (data.status <= 299) {
+        browserHistory.push(`/cases`)
+      }
     })
   }
 
@@ -66,7 +79,6 @@ class NewCase extends Component {
         </div>
       )
     })
-    console.log(this.state.shelves)
     return(
       <div className='build-case'>
         <h1>Build Bookcase</h1>
@@ -83,7 +95,10 @@ class NewCase extends Component {
           <NewShelfFormContainer
             handleShelfAdd={this.handleShelfAdd}
           />
-          <input className="button" type="submit" value="Submit" />
+          <div className="button-group">
+            <input className="button" type="submit" value="Submit" />
+            <button className="button" onClick={this.handleFormClear}>Clear</button>
+          </div>
         </form>
         <BackButton />
       </div>
