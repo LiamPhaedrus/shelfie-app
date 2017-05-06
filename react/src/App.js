@@ -9,6 +9,7 @@ import DragContainer from './containers/DragContainer'
 import ShowCases from './containers/ShowCases'
 import SearchContainer from './containers/SearchContainer'
 import BookShowContainer from './containers/BookShowContainer'
+import CaseContainer from './containers/CaseContainer'
 
 const App = (props) => {
   return (
@@ -21,6 +22,7 @@ const App = (props) => {
       <Route path='/cases' component={ShowCases} />
       <Route path='/books/search' component={SearchContainer} />
       <Route path='/books/:id' component={BookShowContainer} />
+      <Route path='/cases/:id' component={CaseContainer} />
     </Router>
   );
 }
