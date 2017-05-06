@@ -1,18 +1,15 @@
 import React, { Component }  from 'react'
 import { Link } from 'react-router'
 
-class CaseTile extends Component {
-  constructor (props) {
-    super(props)
-  }
+const CaseTile = (props) =>  {
 
-  render () {
-    return(
-      <div>
-        <p>{this.props.name} - with {this.props.shelfCount} shelves</p>
-      </div>
-    )
-  }
+  return(
+    <div>
+      <span>{props.name} - with {props.shelfCount} shelves </span>
+      <Link to={`/cases/${props.id}`} className="case-link">Edit</Link>
+    </div>
+  )
 }
+
 
 export default CaseTile
