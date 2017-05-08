@@ -13,7 +13,6 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
-    binding.pry
     book = Book.new(new_book_params)
     if book.save
       book.users << current_user
@@ -32,7 +31,7 @@ class Api::V1::BooksController < ApplicationController
   end
 
   private
-
+  
   def new_book_params
     params.require(:book).permit(:title, :author, :isbn, :cover_photo)
   end

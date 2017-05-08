@@ -13,7 +13,7 @@ class NewBookFormContainer extends Component {
       title: '',
       author: '',
       isbn: '',
-      image: ''
+      image: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -71,17 +71,16 @@ class NewBookFormContainer extends Component {
   handleImageChange (event) {
     // event.preventDefault()
 
-    let reader = new FileReader()
-    this.setState({
-      image: event.target.files[0]
-    })
-    // let file = event.target.files[0]
-    // reader.onload = (upload) => {
-    //   this.setState({
-    //     image: upload.target.result
-    //   })
-    // }
-    // reader.readAsDataURL(file)
+    const reader = new FileReader()
+    const file = event.target.files[0]
+
+    reader.onload = (upload) => {
+      this.setState({
+        image: upload.target.result
+      })
+    }
+    // this.setState({ image: event.target.files[0] })
+    reader.readAsDataURL(file)
   }
 
   validateTitle (entry) {
@@ -127,6 +126,12 @@ class NewBookFormContainer extends Component {
       })
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
+    let uploaded
+    if (this.state.image) {
+      uploaded = (
+        <h5>Image uploaded!</h5>
+      )
+    }
     return(
       <div>
         <h1>Add a Book</h1>
@@ -152,9 +157,10 @@ class NewBookFormContainer extends Component {
           />
           <ImageField
             content={this.state.image}
-            label="Upload Book Cover"
+            label="Book Cover Image"
             handlerFunction={this.handleImageChange}
           />
+          {uploaded}
           <div className="button-group">
             <button className="button" onClick={this.handleFormClear}>Clear</button>
             <input className="button" type="submit" value="Submit" />
