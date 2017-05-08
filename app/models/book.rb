@@ -5,6 +5,8 @@ class Book < ApplicationRecord
     numericality: { only_integer: true },
     allow_nil: true
 
+  mount_uploader :cover_photo, BookCoverUploader
+
   has_many :placements
   has_many :shelves, through: :placements
   has_many :users, through: :placements
