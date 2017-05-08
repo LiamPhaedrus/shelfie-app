@@ -9,8 +9,6 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'carrierwave', '~> 1.0'
-gem 'fog-aws'
 
 group :development do
   gem 'listen', '~> 3.1'

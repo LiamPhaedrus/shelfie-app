@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/shelves', to: 'static_pages#index'
   get '/cases/*path', to: 'static_pages#index'
   get '/cases', to: 'static_pages#index'
+  get '/search/*path', to: 'static_pages#index'
 
   namespace :api do
     namespace :v1 do

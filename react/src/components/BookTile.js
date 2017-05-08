@@ -10,12 +10,17 @@ const BookTile = (props) => {
   if (props.author !== '') {
     showAuthor = <div>{'By ' + props.author}</div>
   }
+  let showImage = ''
+  if (props.coverPhoto) {
+    showImage = <img src={props.coverPhoto} alt={`${props.title}`} />
+  }
 
   let bookInfo = ''
   if (props.selectedBookId === props.id) {
     bookInfo = <div>
       {showAuthor}
-      <Link to={`/books/${props.id}`} className="book-link">Go to book page</Link>
+      <Link to={`/books/${props.id}`} className="book-link">Go to book page
+      {showImage}</Link>
       </div>
   }
   return(

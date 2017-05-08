@@ -1,5 +1,5 @@
 class PlacementSerializer < ActiveModel::Serializer
-  attributes :id, :spot, :title, :author, :isbn, :shelf_id, :location_info
+  attributes :id, :spot, :title, :author, :isbn, :shelf_id, :location_info, :cover_photo
 
   def title
     object.book.title
@@ -11,6 +11,10 @@ class PlacementSerializer < ActiveModel::Serializer
 
   def isbn
     object.book.isbn
+  end
+
+  def cover_photo
+    object.book.cover_photo
   end
 
   def location_info

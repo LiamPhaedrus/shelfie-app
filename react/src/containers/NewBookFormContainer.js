@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import BackButton from '../components/BackButton'
 import TextField from '../components/TextField'
-import ImageField from '../components/ImageField'
 
 class NewBookFormContainer extends Component {
   constructor (props) {
@@ -13,7 +12,7 @@ class NewBookFormContainer extends Component {
       title: '',
       author: '',
       isbn: '',
-      image: null
+      image: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -69,18 +68,7 @@ class NewBookFormContainer extends Component {
   }
 
   handleImageChange (event) {
-    // event.preventDefault()
-
-    const reader = new FileReader()
-    const file = event.target.files[0]
-
-    reader.onload = (upload) => {
-      this.setState({
-        image: upload.target.result
-      })
-    }
-    // this.setState({ image: event.target.files[0] })
-    reader.readAsDataURL(file)
+    this.setState({ image: event.target.value })
   }
 
   validateTitle (entry) {
@@ -155,12 +143,12 @@ class NewBookFormContainer extends Component {
             name="form-isbn"
             handlerFunction={this.handleISBNChange}
           />
-          <ImageField
+          <TextField
             content={this.state.image}
-            label="Book Cover Image"
+            label="Cover Photo URL"
+            name="form-image"
             handlerFunction={this.handleImageChange}
           />
-          {uploaded}
           <div className="button-group">
             <button className="button" onClick={this.handleFormClear}>Clear</button>
             <input className="button" type="submit" value="Submit" />

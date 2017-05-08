@@ -26,6 +26,7 @@ class ResultsContainer extends Component {
       this.setState({
         books: parsed.books
       })
+      console.log(parsed)
     })
   }
 
@@ -60,6 +61,7 @@ class ResultsContainer extends Component {
           title={book.title}
           author={book.author}
           isbn={book.isbn}
+          coverPhoto={book.cover_photo}
           selectedBookId={this.state.selectedBookId}
           handleClick={this.handleSelectBook}
         />

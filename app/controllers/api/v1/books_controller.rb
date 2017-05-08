@@ -4,7 +4,7 @@ class Api::V1::BooksController < ApplicationController
   def index
     user = current_user
     books = user.books
-    render json: { user: user.name, books: books }
+    render json: { books: books }
   end
 
   def show
@@ -31,7 +31,7 @@ class Api::V1::BooksController < ApplicationController
   end
 
   private
-  
+
   def new_book_params
     params.require(:book).permit(:title, :author, :isbn, :cover_photo)
   end

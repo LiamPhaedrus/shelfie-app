@@ -29,3 +29,12 @@ button.button, input.button, a.button {
   margin-top: 5em;
   // border: 2px solid $dark-blue;
 }
+
+.book-tile {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid $dark-blue;
+  border-radius: 5px;
+  text-align: center;
+  word-wrap: break-word;
+}
