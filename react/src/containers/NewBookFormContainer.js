@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import BackButton from '../components/BackButton'
 import TextField from '../components/TextField'
+import ImageField from '../components/ImageField'
 
 class NewBookFormContainer extends Component {
   constructor (props) {
@@ -11,7 +12,8 @@ class NewBookFormContainer extends Component {
       errors: {},
       title: '',
       author: '',
-      isbn: ''
+      isbn: '',
+      image: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -20,6 +22,7 @@ class NewBookFormContainer extends Component {
     this.handleFormClear = this.handleFormClear.bind(this)
     this.validateTitle = this.validateTitle.bind(this)
     this.validateISBN = this.validateISBN.bind(this)
+    this.handleImageChange = this.handleImageChange.bind(this)
   }
 
   handleSubmit (event) {
@@ -32,7 +35,8 @@ class NewBookFormContainer extends Component {
         book: {
           title: this.state.title,
           author: this.state.author,
-          isbn: this.state.isbn
+          isbn: this.state.isbn,
+          cover_photo: this.state.image
         }
       }
       this.props.addNewBook(payload)
@@ -45,7 +49,8 @@ class NewBookFormContainer extends Component {
     this.setState({
       title: '',
       author: '',
-      isbn: ''
+      isbn: '',
+      image: ''
     })
   }
 
@@ -61,6 +66,22 @@ class NewBookFormContainer extends Component {
   handleISBNChange (event) {
     this.validateISBN(event.target.value)
     this.setState({ isbn: event.target.value })
+  }
+
+  handleImageChange (event) {
+    // event.preventDefault()
+
+    let reader = new FileReader()
+    this.setState({
+      image: event.target.files[0]
+    })
+    // let file = event.target.files[0]
+    // reader.onload = (upload) => {
+    //   this.setState({
+    //     image: upload.target.result
+    //   })
+    // }
+    // reader.readAsDataURL(file)
   }
 
   validateTitle (entry) {
@@ -128,6 +149,11 @@ class NewBookFormContainer extends Component {
             label="ISBN"
             name="form-isbn"
             handlerFunction={this.handleISBNChange}
+          />
+          <ImageField
+            content={this.state.image}
+            label="Upload Book Cover"
+            handlerFunction={this.handleImageChange}
           />
           <div className="button-group">
             <button className="button" onClick={this.handleFormClear}>Clear</button>
