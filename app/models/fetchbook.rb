@@ -5,5 +5,5 @@ class Fetchbook
   #
   #   books = HTTParty.get("http://")
   #
-  end
+  # end
 end
