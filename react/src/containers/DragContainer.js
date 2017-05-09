@@ -4,16 +4,19 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import ShelfContainer from './ShelfContainer'
 import MoveBookList from './MoveBookList'
 import BackButton from '../components/BackButton'
+import SelectShelf from './SelectShelf'
 
 class DragContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
       shelves: [],
-      books: []
+      books: [],
+      selectedShelf: ''
     }
 
     this.handleSpotPlace = this.handleSpotPlace.bind(this)
+    this.handleShelf = this.handleShelf.bind(this)
   }
 
   componentDidMount () {
@@ -47,6 +50,10 @@ class DragContainer extends Component {
       })
   }
 
+  handleShelf (event) {
+    this.setState( selectedShelf: event.target.value )
+  }
+
   render () {
     let unplacedBooks = []
     this.state.books.forEach(book => {
@@ -74,9 +81,13 @@ class DragContainer extends Component {
     })
     return(
       <div className="dnd-container">
+        <SelectShelf
+
+        />
         {shelves}
         <MoveBookList
           books={this.state.books}
+          handleAdd={this.handleSpotPlace}
           id={null}
         />
         <BackButton />
