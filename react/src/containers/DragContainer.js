@@ -4,16 +4,19 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import ShelfContainer from './ShelfContainer'
 import MoveBookList from './MoveBookList'
 import BackButton from '../components/BackButton'
+import SelectShelf from './SelectShelf'
 
 class DragContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
       shelves: [],
-      books: []
+      books: [],
+      selectedShelf: ''
     }
 
     this.handleSpotPlace = this.handleSpotPlace.bind(this)
+    this.handleShelf = this.handleShelf.bind(this)
   }
 
   componentDidMount () {
@@ -31,8 +34,6 @@ class DragContainer extends Component {
     let findBook = (obj) => {
       return obj.id === book
     }
-    console.log(`book id- ${book}; spot id- ${spot}; shelf id- ${shelf}`)
-    console.log(this.state.books.find(findBook))
     let payload = {placement: {id: book, spot: spot, shelf_id: shelf}}
     fetch(`/api/v1/placements/${book}`, {
       credentials: 'include',
@@ -44,6 +45,10 @@ class DragContainer extends Component {
       .then(data => {
         this.setState({ shelves: data.shelves, books: data.books })
       })
+  }
+
+  handleShelf (event) {
+    this.setState( selectedShelf: event.target.value )
   }
 
   render () {
@@ -60,7 +65,7 @@ class DragContainer extends Component {
       }
       let shelvedBooks = this.state.books.filter(filterById)
       return(
-        <div key={"shelf" + shelf.id}>
+        <div key={"shelf" + shelf.id} className='row columns'>
           <h3>{shelf.name}</h3>
           <ShelfContainer
             id={shelf.id}
@@ -73,9 +78,13 @@ class DragContainer extends Component {
     })
     return(
       <div className="dnd-container">
+        <SelectShelf
+
+        />
         {shelves}
         <MoveBookList
-          books={unplacedBooks}
+          books={this.state.books}
+          handleAdd={this.handleSpotPlace}
           id={null}
         />
         <BackButton />

@@ -35,7 +35,7 @@ class SearchContainer extends Component {
         <ResultsContainer
           searchTerm={this.state.searchTerm}
         />
-        <BackButton />
+        <div className=''><BackButton /></div>
       </div>
     )
   }

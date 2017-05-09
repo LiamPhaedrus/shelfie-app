@@ -22,9 +22,16 @@ function collect(connect, monitor) {
 class Book extends Component {
   render() {
     const { connectDragSource, isDragging, id, title } = this.props
+    let coverShown = ''
+    if (this.props.cover && this.props.cover !== '') {
+      coverShown = <img src={this.props.cover} alt={`${title}`} />
+    } else {
+      coverShown = 'X'
+    }
+
     return connectDragSource(
       <div className='book-drag'>
-        X
+        {coverShown}
       </div>
     )
   }

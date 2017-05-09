@@ -91,6 +91,7 @@ class SpotContainer extends Component {
           key={"book" + book.id}
           id={book.id}
           title={book.title}
+          cover={book.cover}
         />
       )
     })

@@ -18,7 +18,6 @@ describe Api::V1::BooksController, type: :controller do
 
       expect(response.status).to eq 200
 
-      expect(json_parsed_response["user"]).to eq(@user.name)
       expect(json_parsed_response["books"]).to have_content(@book.author)
       expect(json_parsed_response["books"]).to have_content(@book_two.title)
     end

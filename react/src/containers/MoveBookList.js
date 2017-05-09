@@ -28,7 +28,7 @@ const listTarget = {
       return
     }
     const item = monitor.getItem();
-    // props.handleAdd(item, component.props.id)
+    props.handleAdd(item.id, null, null)
     return { moved: true }
   }
 }
@@ -56,6 +56,7 @@ class MoveBookList extends Component {
           id={book.id}
           title={book.title}
           author={book.author}
+          spot={book.spot}
         />
       )
     })
