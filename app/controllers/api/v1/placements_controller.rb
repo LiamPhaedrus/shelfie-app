@@ -32,6 +32,7 @@ class Api::V1::PlacementsController < ApplicationController
     shelves = []
     Shelf.where(user_id: id).each do |shelf|
       hash = {}
+      hash[:bookcaseId] = shelf.case.id
       hash[:id] = shelf.id
       hash[:name] = shelf.name
       hash[:size] = shelf.size
