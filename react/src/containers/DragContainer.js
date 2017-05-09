@@ -34,8 +34,6 @@ class DragContainer extends Component {
     let findBook = (obj) => {
       return obj.id === book
     }
-    console.log(`book id- ${book}; spot id- ${spot}; shelf id- ${shelf}`)
-    console.log(this.state.books.find(findBook))
     let payload = {placement: {id: book, spot: spot, shelf_id: shelf}}
     fetch(`/api/v1/placements/${book}`, {
       credentials: 'include',
@@ -45,7 +43,6 @@ class DragContainer extends Component {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data.books)
         this.setState({ shelves: data.shelves, books: data.books })
       })
   }

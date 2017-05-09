@@ -21,9 +21,14 @@ function collect(connect, monitor) {
 
 class BookListed extends Component {
   render() {
-    const { connectDragSource, isDragging, id, title, author } = this.props
+    const { connectDragSource, isDragging, id, title, author, spot } = this.props
+    let greyOut = ''
+    if (spot && spot !== '') {
+      greyOut = 'grey-out'
+    }
+
     return connectDragSource(
-      <div className='book-drag'>
+      <div className={`book-drag ${greyOut}`}>
         <span className='title-strong'>{title}</span> by {author}
       </div>
     )

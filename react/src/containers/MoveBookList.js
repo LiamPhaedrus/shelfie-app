@@ -56,6 +56,7 @@ class MoveBookList extends Component {
           id={book.id}
           title={book.title}
           author={book.author}
+          spot={book.spot}
         />
       )
     })
