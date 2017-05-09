@@ -1,14 +1,15 @@
 .shelf {
   border: 1px solid black;
-  height: 10vh;
+  height: 11.5vh;
   min-height: 60px;
   margin-bottom: 1vh;
 }
 
 .spot {
   float: left;
-  border: 1px solid grey;
-  height: 10vh;
+  border: 1px dashed #eae2cf;
+  border-bottom: none;
+  height: 11vh;
   min-height: 60px;
   width: 5%;
 }

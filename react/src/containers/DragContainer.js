@@ -42,6 +42,7 @@ class DragContainer extends Component {
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data.books)
         this.setState({ shelves: data.shelves, books: data.books })
       })
   }
@@ -60,7 +61,7 @@ class DragContainer extends Component {
       }
       let shelvedBooks = this.state.books.filter(filterById)
       return(
-        <div key={"shelf" + shelf.id}>
+        <div key={"shelf" + shelf.id} className='row columns'>
           <h3>{shelf.name}</h3>
           <ShelfContainer
             id={shelf.id}
@@ -75,7 +76,7 @@ class DragContainer extends Component {
       <div className="dnd-container">
         {shelves}
         <MoveBookList
-          books={unplacedBooks}
+          books={this.state.books}
           id={null}
         />
         <BackButton />

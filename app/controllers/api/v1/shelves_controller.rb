@@ -32,6 +32,7 @@ class Api::V1::ShelvesController < ApplicationController
       hash[:id] = placed.id
       hash[:title] = placed.book.title
       hash[:author] = placed.book.author
+      hash[:cover] = placed.book.cover_photo
       hash[:spot] = placed.spot
       hash[:shelfId] = placed.shelf_id
       books << hash
