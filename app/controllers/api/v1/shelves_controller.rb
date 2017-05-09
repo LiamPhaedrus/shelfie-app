@@ -25,7 +25,7 @@ class Api::V1::ShelvesController < ApplicationController
       hash[:id] = shelf.id
       hash[:name] = shelf.name
       hash[:size] = shelf.size
-      hash[:bookIds] = shelf.books.pluck(:id)
+      hash[:bookIds] = shelf.placements.pluck(:id)
       shelves << hash
     end
     shelves
@@ -36,6 +36,7 @@ class Api::V1::ShelvesController < ApplicationController
     Placement.where(user_id: id).each do |placed|
       hash = {}
       hash[:id] = placed.id
+      hash[:bookId] = placed.book.id
       hash[:title] = placed.book.title
       hash[:author] = placed.book.author
       hash[:cover] = placed.book.cover_photo

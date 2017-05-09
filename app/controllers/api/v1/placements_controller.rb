@@ -36,7 +36,7 @@ class Api::V1::PlacementsController < ApplicationController
       hash[:id] = shelf.id
       hash[:name] = shelf.name
       hash[:size] = shelf.size
-      hash[:bookIds] = shelf.books.pluck(:id)
+      hash[:bookIds] = shelf.placements.pluck(:id)
       shelves << hash
     end
     shelves
@@ -49,6 +49,7 @@ class Api::V1::PlacementsController < ApplicationController
       hash[:id] = placed.id
       hash[:title] = placed.book.title
       hash[:author] = placed.book.author
+      hash[:bookId] = placed.book.id
       hash[:spot] = placed.spot
       hash[:cover] = placed.book.cover_photo
       hash[:shelfId] = placed.shelf_id
