@@ -23,12 +23,12 @@ class Api::V1::PlacementsController < ApplicationController
         filtered_p = shelf.placements.where(spot: [new_spot..shelf.size])
         sorted_p = filtered_p.order(:spot)
 
-        bob = new_spot
+        increment = new_spot
 
         sorted_p.each do |placement|
-          if placement.spot == bob
-            bob += 1
-            placement.update(spot: bob)
+          if placement.spot == increment
+            increment += 1
+            placement.update(spot: increment)
           else
             break
           end

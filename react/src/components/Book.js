@@ -24,7 +24,7 @@ class Book extends Component {
     const { connectDragSource, isDragging, id, title } = this.props
     let coverShown = ''
     if (this.props.cover && this.props.cover !== '') {
-      coverShown = <img src={this.props.cover} alt={`${title}`} />
+      coverShown = <img src={this.props.cover} alt={`${title}`} className='image-book-shelf' />
     } else {
       coverShown = 'X'
     }
