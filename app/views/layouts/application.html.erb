@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Shelfie" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
@@ -18,7 +18,7 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text"><a href="/">Library App</a></li>
+          <li class="menu-text"><a href="/">Shelfie</a></li>
           <% if user_signed_in? %>
             <li>Hello <%= current_user.name %></li>
           <% end %>

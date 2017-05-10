@@ -27,8 +27,12 @@ class DragContainer extends Component {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data.bookcases)
-        this.setState({ shelves: data.shelves, books: data.books, bookcases: data.bookcases })
+        this.setState({
+          shelves: data.shelves,
+          books: data.books,
+          bookcases: data.bookcases,
+          selectedShelf: data.shelves[0].id
+        })
       })
 
   }
@@ -52,7 +56,8 @@ class DragContainer extends Component {
   }
 
   handleShelf (event) {
-    this.setState( selectedShelf: event.target.value )
+    console.log(event.target.value)
+    this.setState({ selectedShelf: event.target.value })
   }
 
   render () {
@@ -63,27 +68,38 @@ class DragContainer extends Component {
       }
     })
 
+    let whichShelf = (obj) => {
+      return obj.id === this.state.selectedShelf
+    }
+    let bob = this.state.shelves.find(whichShelf)
+
     let shelves = this.state.shelves.map(shelf => {
+
       let filterById = (obj) => {
         return shelf.bookIds.includes(obj.id)
       }
       let shelvedBooks = this.state.books.filter(filterById)
-      return(
-        <div key={"shelf" + shelf.id} className='row columns'>
+      if (shelf === bob) {
+        return(
+          <div key={"shelf" + shelf.id} className='row columns'>
           <h3>{shelf.name}</h3>
           <ShelfContainer
-            id={shelf.id}
-            size={shelf.size}
-            books={shelvedBooks}
-            handleAdd={this.handleSpotPlace}
+          id={shelf.id}
+          size={shelf.size}
+          books={shelvedBooks}
+          handleAdd={this.handleSpotPlace}
           />
-        </div>
-      )
+          </div>
+        )
+      }
     })
     return(
       <div className="dnd-container">
+        <BackButton />
         <SelectShelf
           bookcases={this.state.bookcases}
+          handleShelf={this.handleShelf}
+          selectedShelf={this.state.selectedShelf}
         />
         {shelves}
         <MoveBookList
@@ -91,7 +107,6 @@ class DragContainer extends Component {
           handleAdd={this.handleSpotPlace}
           id={null}
         />
-        <BackButton />
       </div>
     )
   }

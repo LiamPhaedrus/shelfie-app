@@ -1,19 +1,21 @@
-.shelf {
-  border: 1px solid black;
-  height: 11.5vh;
-  min-height: 60px;
-  margin-bottom: 1vh;
-}
-
 .spot {
-  float: left;
   border: 1px dashed #eae2cf;
-  border-bottom: 0;
+  border-bottom: 1px solid #000000;
+  border-top: 0;
+  display: table-cell;
   height: 11vh;
-  min-height: 60px;
+  vertical-align: bottom;
   width: 5%;
 }
 
 .grey-out {
   color: grey;
+}
+
+.book-drag > img {
+  vertical-align: bottom;
+}
+
+.booklist-nospot {
+  margin-top: 1.2vh;
 }
