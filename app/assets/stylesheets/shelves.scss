@@ -1,10 +1,10 @@
 .spot {
-  display: table-cell;
-  vertical-align: bottom;
   border: 1px dashed #eae2cf;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000000;
   border-top: 0;
+  display: table-cell;
   height: 11vh;
+  vertical-align: bottom;
   width: 5%;
 }
 
