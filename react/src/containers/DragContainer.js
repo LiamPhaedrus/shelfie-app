@@ -38,7 +38,6 @@ class DragContainer extends Component {
   }
 
   handleSpotPlace (book, spot, shelf) {
-    console.log(book, spot, shelf)
     let findBook = (obj) => {
       return obj.id === book
     }
@@ -56,7 +55,6 @@ class DragContainer extends Component {
   }
 
   handleShelf (event) {
-    console.log(event.target.value)
     this.setState({ selectedShelf: event.target.value })
   }
 
@@ -72,14 +70,14 @@ class DragContainer extends Component {
       return obj.id === this.state.selectedShelf
     }
     let bob = this.state.shelves.find(whichShelf)
-
+    console.log(this.state.selectedShelf)
     let shelves = this.state.shelves.map(shelf => {
 
       let filterById = (obj) => {
         return shelf.bookIds.includes(obj.id)
       }
       let shelvedBooks = this.state.books.filter(filterById)
-      if (shelf === bob) {
+      if (shelf.id === parseFloat(`${this.state.selectedShelf}`)) {
         return(
           <div key={"shelf" + shelf.id} className='row columns'>
           <h3>{shelf.name}</h3>
@@ -92,6 +90,7 @@ class DragContainer extends Component {
           </div>
         )
       }
+
     })
     return(
       <div className="dnd-container">

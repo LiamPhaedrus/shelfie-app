@@ -1,3 +1,7 @@
+.shelf {
+  width: 100%;
+}
+
 .spot {
   border: 1px dashed #eae2cf;
   border-bottom: 1px solid #000000;
@@ -5,7 +9,7 @@
   display: table-cell;
   height: 11vh;
   vertical-align: bottom;
-  width: 5%;
+  width: 5vw;
 }
 
 .grey-out {

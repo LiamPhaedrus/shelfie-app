@@ -26,7 +26,7 @@ class Api::V1::PlacementsController < ApplicationController
         increment = new_spot
 
         sorted_p.each do |placement|
-          if placement.spot == increment
+          if placement.spot == increment && placement != place
             increment += 1
             placement.update(spot: increment)
           else
