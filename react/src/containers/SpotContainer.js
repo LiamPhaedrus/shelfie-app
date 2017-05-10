@@ -96,9 +96,9 @@ class SpotContainer extends Component {
       )
     })
     return connectDropTarget (
-      <li className="spot">
+      <div className="spot">
         {books}
-      </li>
+      </div>
     )
   }
 }

@@ -1,24 +1,11 @@
-.shelf {
-  border: 1px solid blue;
-  height: 11vh;
-  min-height: 60px;
-  // margin-bottom: 2vh;
-  // margin-top: 5vh;
-  display: table-row;
-}
-
 .spot {
-  // float: left;
   display: table-cell;
   vertical-align: bottom;
   border: 1px dashed #eae2cf;
-  // border: 1px dashed black;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
   border-top: 0;
   height: 11vh;
-  min-height: 60px;
   width: 5%;
-  // padding: 0px;
 }
 
 .grey-out {
@@ -27,4 +14,8 @@
 
 .book-drag > img {
   vertical-align: bottom;
+}
+
+.booklist-nospot {
+  margin-top: 1.2vh;
 }
