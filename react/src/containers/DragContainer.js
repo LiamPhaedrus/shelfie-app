@@ -27,7 +27,6 @@ class DragContainer extends Component {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data.bookcases)
         this.setState({ shelves: data.shelves, books: data.books, bookcases: data.bookcases })
       })
 
@@ -52,7 +51,8 @@ class DragContainer extends Component {
   }
 
   handleShelf (event) {
-    this.setState( selectedShelf: event.target.value )
+    console.log(event.target.value)
+    this.setState({ selectedShelf: event.target.value })
   }
 
   render () {
@@ -82,8 +82,11 @@ class DragContainer extends Component {
     })
     return(
       <div className="dnd-container">
+        <BackButton />
         <SelectShelf
           bookcases={this.state.bookcases}
+          handleShelf={this.handleShelf}
+          selectedShelf={this.state.selectedShelf}
         />
         {shelves}
         <MoveBookList
@@ -91,7 +94,6 @@ class DragContainer extends Component {
           handleAdd={this.handleSpotPlace}
           id={null}
         />
-        <BackButton />
       </div>
     )
   }

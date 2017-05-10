@@ -3,7 +3,7 @@ import React from 'react'
 const Select = props => {
   let optionElements = props.options.map(option =>{
     return (
-      <option key={option} value={option}>{option}</option>
+      <option key={option.id} value={option.id}>{option.show}</option>
     )
   })
 
