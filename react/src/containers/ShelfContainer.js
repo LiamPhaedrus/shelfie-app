@@ -33,9 +33,9 @@ class ShelfContainer extends Component {
 
   render () {
     return (
-      <div className='shelf'>
+      <ul className='shelf'>
         {this.renderSpots(this.props.size)}
-      </div>
+      </ul>
     )
   }
 }
