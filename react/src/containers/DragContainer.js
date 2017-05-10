@@ -12,7 +12,8 @@ class DragContainer extends Component {
     this.state = {
       shelves: [],
       books: [],
-      selectedShelf: ''
+      selectedShelf: '',
+      bookcases: []
     }
 
     this.handleSpotPlace = this.handleSpotPlace.bind(this)
@@ -26,11 +27,14 @@ class DragContainer extends Component {
     })
       .then(response => response.json())
       .then(data => {
-        this.setState({ shelves: data.shelves, books: data.books })
+        console.log(data.bookcases)
+        this.setState({ shelves: data.shelves, books: data.books, bookcases: data.bookcases })
       })
+
   }
 
   handleSpotPlace (book, spot, shelf) {
+    console.log(book, spot, shelf)
     let findBook = (obj) => {
       return obj.id === book
     }
@@ -79,7 +83,7 @@ class DragContainer extends Component {
     return(
       <div className="dnd-container">
         <SelectShelf
-
+          bookcases={this.state.bookcases}
         />
         {shelves}
         <MoveBookList

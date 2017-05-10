@@ -3,9 +3,25 @@ class Api::V1::PlacementsController < ApplicationController
 
   def update
     if current_user
-      place = Placement.find(update_params['id'])
 
-      if place.update!(spot: update_params['spot'], shelf_id: update_params['shelf_id'])
+      place = Placement.find(update_params['id'])
+      new_spot = update_params['spot']
+      shelf = nil
+      if update_params['shelf_id']
+        shelf = Shelf.find(update_params['shelf_id'])
+      end
+      # taken_spots = Shelf.find(update_params['shelf_id']).placements.pluck(:spot)
+
+      # if taken_spots.include?(update_params['spot'])
+        # spot_array = Array.new(Shelf.find(update_params['shelf_id']).size)
+        # Shelf.find(update_params['shelf_id']).placements.each do |placed|
+        #   spot_array[placed.spot] = placed
+        # end
+        #
+        # spot_array.insert(update_params['spot'], place)
+
+      if update_params['shelf_id'].nil?
+        place.update!(spot: update_params['spot'], shelf_id: update_params['shelf_id'])
         # @places = Placement.where(user: current_user)
         render json: {
           status: 201,
@@ -14,10 +30,37 @@ class Api::V1::PlacementsController < ApplicationController
           books: book_info(current_user.id)
           # books: @places
         }.to_json
-      else
+      elsif shelf.placements.pluck(:spot).include?(new_spot)
+        filtered_p = shelf.placements.where(spot: [new_spot..shelf.size])
+        sorted_p = filtered_p.order(:spot)
+
+        bob = new_spot
+
+        sorted_p.each do |placement|
+          if placement.spot == bob
+            bob += 1
+            placement.update(spot: bob)
+          else
+            break
+          end
+        end
+        place.update!(spot: update_params['spot'], shelf_id: update_params['shelf_id'])
         render json: {
-          status: 500,
-          error: place.errors
+          status: 201,
+          message: ("BLARGH"),
+          shelves: shelves_info(current_user.id),
+          books: book_info(current_user.id)
+          # books: @places
+        }.to_json
+      else
+        place.update!(spot: update_params['spot'], shelf_id: update_params['shelf_id'])
+        # @places = Placement.where(user: current_user)
+        render json: {
+          status: 201,
+          message: ("You moved the book"),
+          shelves: shelves_info(current_user.id),
+          books: book_info(current_user.id)
+          # books: @places
         }.to_json
       end
     end
@@ -32,10 +75,11 @@ class Api::V1::PlacementsController < ApplicationController
     shelves = []
     Shelf.where(user_id: id).each do |shelf|
       hash = {}
+      hash[:bookcaseId] = shelf.case.id
       hash[:id] = shelf.id
       hash[:name] = shelf.name
       hash[:size] = shelf.size
-      hash[:bookIds] = shelf.books.pluck(:id)
+      hash[:bookIds] = shelf.placements.pluck(:id)
       shelves << hash
     end
     shelves
@@ -48,6 +92,7 @@ class Api::V1::PlacementsController < ApplicationController
       hash[:id] = placed.id
       hash[:title] = placed.book.title
       hash[:author] = placed.book.author
+      hash[:bookId] = placed.book.id
       hash[:spot] = placed.spot
       hash[:cover] = placed.book.cover_photo
       hash[:shelfId] = placed.shelf_id

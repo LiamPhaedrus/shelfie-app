@@ -7,4 +7,8 @@ class Shelf < ApplicationRecord
   belongs_to :case
   has_many :placements
   has_many :books, through: :placements
+
+  # def spot_check(arg)
+  #   if self.books.pluck()
+  # end
 end
