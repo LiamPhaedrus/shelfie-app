@@ -30,11 +30,21 @@ class SearchContainer extends Component {
 
     return(
       <div>
-        <h1>Search</h1>
-        <div className='row medium-6 columns'>{search}</div>
-        <ResultsContainer
-          searchTerm={this.state.searchTerm}
-        />
+        <div className='show-for-small-only'>
+          <h2>Search</h2>
+          <div className='row columns'>{search}</div>
+        </div>
+        <div className='hide-for-small-only row medium-9 large-7 columns'>
+          <div className='input-group'>
+            <span className='input-group-label search-fix'><h2>Search</h2></span>
+            <span className='input-group-field search-fix'>{search}</span>
+          </div>
+        </div>
+        <div className='row columns'>
+          <ResultsContainer
+            searchTerm={this.state.searchTerm}
+          />
+        </div>
         <div className=''><BackButton /></div>
       </div>
     )

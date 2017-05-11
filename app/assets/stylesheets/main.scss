@@ -16,14 +16,26 @@ $offwhite: #F8F3EB;
 body {
   font-family: 'Merriweather', serif;
   color: $brown;
-  // background-color: $offwhite;
-  background-color: lighten($offwhite, 0%);
+  // background-color: lighten($offwhite, 0%);
+  background-image: image-url('book-ladder.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $offwhite;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
 
 }
+
+// .background-image {
+//   background-image: image-url('book-ladder.jpg');
+//   background-attachment: fixed;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+// }
 
 a {
   color: $dark-blue;
@@ -50,7 +62,7 @@ span.title-strong {
 
 .detail-cover {
   margin-bottom: 1em;
-  max-width: 550px;
+  max-width: 500px;
 }
 
 .home-react > h1 {

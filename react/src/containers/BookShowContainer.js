@@ -31,13 +31,13 @@ class BookShowContainer extends Component {
 
   render () {
     return(
-      <div className='row column'>
-        <BookDetails
-          info={this.state.book}
-        />
-        <div className='floating-back'>
-          <BackButton />
+      <div>
+        <div className='row column'>
+          <BookDetails
+            info={this.state.book}
+          />
         </div>
+        <BackButton />
       </div>
     )
   }

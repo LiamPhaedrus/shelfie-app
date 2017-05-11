@@ -19,8 +19,10 @@ const BookTile = (props) => {
   if (props.selectedBookId === props.id) {
     bookInfo = <div>
       {showAuthor}
-      <Link to={`/books/${props.id}`} className="book-link">Go to book page
-      {showImage}</Link>
+      <Link to={`/books/${props.id}`} className="book-link">
+        {showImage}
+        <div>See details</div>
+      </Link>
       </div>
   }
   return(
