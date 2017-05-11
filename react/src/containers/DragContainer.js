@@ -5,6 +5,7 @@ import ShelfContainer from './ShelfContainer'
 import MoveBookList from './MoveBookList'
 import BackButton from '../components/BackButton'
 import SelectShelf from './SelectShelf'
+import PlusMinus from './PlusMinus'
 
 class DragContainer extends Component {
   constructor (props) {
@@ -70,7 +71,6 @@ class DragContainer extends Component {
       return obj.id === this.state.selectedShelf
     }
     let bob = this.state.shelves.find(whichShelf)
-    console.log(this.state.selectedShelf)
     let shelves = this.state.shelves.map(shelf => {
 
       let filterById = (obj) => {
@@ -80,12 +80,12 @@ class DragContainer extends Component {
       if (shelf.id === parseFloat(`${this.state.selectedShelf}`)) {
         return(
           <div key={"shelf" + shelf.id} className='row columns'>
-          <h3>{shelf.name}</h3>
+          <h3>{shelf.name}</h3><PlusMinus id={shelf.id}/>
           <ShelfContainer
-          id={shelf.id}
-          size={shelf.size}
-          books={shelvedBooks}
-          handleAdd={this.handleSpotPlace}
+            id={shelf.id}
+            size={shelf.size}
+            books={shelvedBooks}
+            handleAdd={this.handleSpotPlace}
           />
           </div>
         )

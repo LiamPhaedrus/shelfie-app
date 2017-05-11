@@ -45,7 +45,9 @@ class BooksContainer extends Component {
         author = `by ${book.author}`
       }
       return(
-        <li key={"book" + book.id}><span className='title-strong'>{book.title}</span> {author}</li>
+        <li key={"book" + book.id}><Link to={`/books/${book.id}`} className="book-link">
+          <span className='title-strong'>{book.title}</span> {author}</Link>
+        </li>
       )
     })
     return(

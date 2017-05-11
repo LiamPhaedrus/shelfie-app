@@ -28,7 +28,11 @@ class Api::V1::PlacementsController < ApplicationController
         sorted_p.each do |placement|
           if placement.spot == increment && placement != place
             increment += 1
-            placement.update(spot: increment)
+            if shelf.size <= increment
+              placement.update(spot: nil, shelf_id: nil)
+            else
+              placement.update(spot: increment)
+            end
           else
             break
           end

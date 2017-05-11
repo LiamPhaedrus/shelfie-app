@@ -35,7 +35,9 @@ class BookShowContainer extends Component {
         <BookDetails
           info={this.state.book}
         />
-        <BackButton />
+        <div className='floating-back'>
+          <BackButton />
+        </div>
       </div>
     )
   }

@@ -3,7 +3,7 @@ class Api::V1::BooksController < ApplicationController
 
   def index
     user = current_user
-    books = user.books
+    books = user.books.order(:title)
     render json: { books: books }
   end
 
