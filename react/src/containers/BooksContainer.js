@@ -37,9 +37,9 @@ class BooksContainer extends Component {
       )
     })
     return(
-      <div className="row top-all-books">
+      <div className='bg-fade'>
         <div className='columns'>
-          <h1 className='heading-move'>Your Books</h1>
+          <h1>Your Books</h1>
           <Link to='books/new' className="button react-left">Add Book</Link>
           <BackButton />
           <ul>

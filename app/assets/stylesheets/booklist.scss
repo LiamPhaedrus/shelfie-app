@@ -4,6 +4,10 @@ $brown: #6D3109;
 $beige: #eae2cf;
 $offwhite: #f8f3eb;
 
-.top-all-books {
+.bg-fade {
   background-color: rgba($offwhite, .85);
+  min-height: 95vh;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
