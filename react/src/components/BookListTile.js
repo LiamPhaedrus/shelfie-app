@@ -11,7 +11,7 @@ const BookListTile = (props) => {
     showImage = <img src={props.coverPhoto} alt={`${props.title}`} />
   }
   return(
-    <Link to={`/books/${props.id}`} className='medium-6 columns'>
+    <Link to={`/books/${props.id}`} className='medium-6 columns end'>
       <div className='media-object book-list-tile'>
         <div className='media-object-section'>
           <div className='thumbnail'>
@@ -27,11 +27,3 @@ const BookListTile = (props) => {
 }
 
 export default BookListTile
-
-
-
-// <div className='book-list-outer columns'>
-// <Link to={`/books/${props.id}`} className='book-list-tile'>
-// {showImage}<span className='title-strong'>{props.title}</span> {showAuthor}
-// </Link>
-// </div>

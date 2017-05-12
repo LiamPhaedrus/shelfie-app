@@ -22,11 +22,6 @@ class DashHomePage extends Component {
               </Link>
             </div>
             <div className='dash-outer medium-4 xlarge-2 columns'>
-              <Link to='/books/search' className='dash-tile'>
-                Search Books
-              </Link>
-            </div>
-            <div className='dash-outer medium-4 xlarge-2 columns'>
               <Link to='/books/new' className='dash-tile'>
                 Add Books
               </Link>
@@ -39,6 +34,11 @@ class DashHomePage extends Component {
             <div className='dash-outer medium-4 xlarge-2 columns'>
               <Link to='/cases/new' className='dash-tile'>
                 Build Bookcase
+              </Link>
+            </div>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='#' className='dash-tile'>
+                Lists
               </Link>
             </div>
           </div>

@@ -18,8 +18,16 @@ div.callout {
   height: 11vh;
 }
 
+.search-move {
+  float: left;
+}
+
 .input-group-label.search-fix {
   border: none;
   background-color: rgba($offwhite, .01);
   color: $brown;
+}
+
+.input-group-field.search-fix {
+  vertical-align: bottom;
 }
