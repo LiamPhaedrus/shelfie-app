@@ -31,7 +31,7 @@ class BookShowContainer extends Component {
 
   render () {
     return(
-      <div>
+      <div className='bg-fade'>
         <div className='row column'>
           <BookDetails
             info={this.state.book}

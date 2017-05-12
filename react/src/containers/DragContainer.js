@@ -70,6 +70,7 @@ class DragContainer extends Component {
     let whichShelf = (obj) => {
       return obj.id === this.state.selectedShelf
     }
+
     let bob = this.state.shelves.find(whichShelf)
     let shelves = this.state.shelves.map(shelf => {
 

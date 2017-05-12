@@ -36,10 +36,12 @@ class ShowCases extends Component {
       )
     })
     return(
-      <div>
-        <h1>Bookcases</h1>
-        {bookcases}
-        <BackButton />
+      <div className='bg-fade'>
+        <div className='columns'>
+          <h1>Bookcases</h1>
+          {bookcases}
+          <BackButton />
+        </div>
       </div>
     )
   }

@@ -3,8 +3,11 @@ $brown: #6d3109;
 $offwhite: #f8f3eb;
 
 .shelf {
-  width: 100%;
+  // width: 80vw;
   background: rgba($offwhite, .5);
+  height: 150px;
+  overflow: scroll;
+  overflow-y: hidden;
 }
 
 .spot {
@@ -12,9 +15,13 @@ $offwhite: #f8f3eb;
   border-bottom: 1px solid $brown;
   border-top: 0;
   display: table-cell;
-  height: 11vh;
+  height: 115px;
   vertical-align: bottom;
-  width: 5vw;
+  min-width: 70px;
+  img {
+    height: 115px;
+    width: 70px;
+  }
 }
 
 .grey-out {

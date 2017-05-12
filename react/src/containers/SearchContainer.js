@@ -30,7 +30,7 @@ class SearchContainer extends Component {
 
     return(
       <div className='bg-fade'>
-        <div className='colums'>
+        <div className='columns'>
           <div className='show-for-small-only'>
             <h2>Search</h2>
             <div className='row columns'>{search}</div>
