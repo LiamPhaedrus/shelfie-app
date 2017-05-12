@@ -80,27 +80,31 @@ class NewCase extends Component {
       )
     })
     return(
-      <div className='build-case'>
-        <h1>Build Bookcase</h1>
-        <form className='callout' onSubmit={this.handleSubmitCase}>
-          <NewCaseForm
-            handleLocationChange={this.handleLocationChange}
-            handleNameChange={this.handleNameChange}
-            name={this.state.name}
-            location={this.state.location}
-          />
-          <div className='wip-case'>
-            {caseShelves}
+      <div className='bg-fade'>
+        <div className='columns'>
+          <div className='build-case'>
+            <h1>Build Bookcase</h1>
+            <form className='callout' onSubmit={this.handleSubmitCase}>
+              <NewCaseForm
+                handleLocationChange={this.handleLocationChange}
+                handleNameChange={this.handleNameChange}
+                name={this.state.name}
+                location={this.state.location}
+              />
+              <div className='wip-case'>
+                {caseShelves}
+              </div>
+              <NewShelfFormContainer
+                handleShelfAdd={this.handleShelfAdd}
+              />
+              <div className="button-group">
+                <input className="button" type="submit" value="Submit" />
+                <button className="button" onClick={this.handleFormClear}>Clear</button>
+              </div>
+            </form>
+            <BackButton />
           </div>
-          <NewShelfFormContainer
-            handleShelfAdd={this.handleShelfAdd}
-          />
-          <div className="button-group">
-            <input className="button" type="submit" value="Submit" />
-            <button className="button" onClick={this.handleFormClear}>Clear</button>
-          </div>
-        </form>
-        <BackButton />
+        </div>
       </div>
     )
   }

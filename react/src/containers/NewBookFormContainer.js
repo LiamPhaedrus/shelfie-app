@@ -134,40 +134,42 @@ class NewBookFormContainer extends Component {
       )
     }
     return(
-      <div>
-        <h1>Add a Book</h1>
-        <form className='new-book-form callout' onSubmit={this.handleSubmit}>
-          {errorDiv}
-          <TextField
-            content={this.state.title}
-            label="Title"
-            name="form-title"
-            handlerFunction={this.handleTitleChange}
-          />
-          <TextField
-            content={this.state.author}
-            label="Author"
-            name="form-author"
-            handlerFunction={this.handleAuthorChange}
-          />
-          <TextField
-            content={this.state.isbn}
-            label="ISBN"
-            name="form-isbn"
-            handlerFunction={this.handleISBNChange}
-          />
-          <TextField
-            content={this.state.image}
-            label="Cover Photo URL"
-            name="form-image"
-            handlerFunction={this.handleImageChange}
-          />
-          <div className="button-group">
-            <button className="button" onClick={this.handleFormClear}>Clear</button>
-            <input className="button" type="submit" value="Submit" />
-            <BackButton />
-          </div>
-        </form>
+      <div className='bg-fade'>
+        <div className='medium-10 medium-centered columns'>
+          <h1>Add a Book</h1>
+          <form className='new-book-form callout' onSubmit={this.handleSubmit}>
+            {errorDiv}
+            <TextField
+              content={this.state.title}
+              label="Title"
+              name="form-title"
+              handlerFunction={this.handleTitleChange}
+            />
+            <TextField
+              content={this.state.author}
+              label="Author"
+              name="form-author"
+              handlerFunction={this.handleAuthorChange}
+            />
+            <TextField
+              content={this.state.isbn}
+              label="ISBN"
+              name="form-isbn"
+              handlerFunction={this.handleISBNChange}
+            />
+            <TextField
+              content={this.state.image}
+              label="Cover Photo URL"
+              name="form-image"
+              handlerFunction={this.handleImageChange}
+            />
+            <div className="button-group">
+              <button className="button" onClick={this.handleFormClear}>Clear</button>
+              <input className="button" type="submit" value="Submit" />
+              <BackButton />
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

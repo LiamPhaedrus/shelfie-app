@@ -1,13 +1,15 @@
 $beige: #eae2cf;
 $brown: #6d3109;
+$offwhite: #f8f3eb;
 
 .shelf {
   width: 100%;
+  background: rgba($offwhite, .5);
 }
 
 .spot {
   border: 1px dashed #eae2cf;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid $brown;
   border-top: 0;
   display: table-cell;
   height: 11vh;
