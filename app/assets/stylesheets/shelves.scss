@@ -1,26 +1,39 @@
+$dark-blue: #151a51;
+$pop-blue: #6cd4f6;
+$brown: #6D3109;
 $beige: #eae2cf;
-$brown: #6d3109;
 $offwhite: #f8f3eb;
 
+.bg-fade-more {
+  background-color: rgba($offwhite, .8);
+  min-height: 95vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
 .shelf {
-  // width: 80vw;
-  background: rgba($offwhite, .5);
   height: 150px;
-  overflow: scroll;
+  width: 97vw;
+  overflow-x: auto;
   overflow-y: hidden;
 }
 
 .spot {
-  border: 1px dashed #eae2cf;
   border-bottom: 1px solid $brown;
-  border-top: 0;
   display: table-cell;
-  height: 115px;
+  height: 133px;
   vertical-align: bottom;
-  min-width: 70px;
+  min-width: 80px;
   img {
-    height: 115px;
-    width: 70px;
+    height: 133px;
+    width: 80px;
+  }
+  &:nth-of-type(odd) {
+    background: rgba($pop-blue, .2);
+  }
+  &:nth-of-type(even) {
+    background: rgba(darken($pop-blue, 50%), .2);
   }
 }
 
@@ -28,18 +41,12 @@ $offwhite: #f8f3eb;
   color: grey;
 }
 
-.book-drag > img {
-  vertical-align: bottom;
-}
-
 .booklist-nospot {
   background-color: $beige;
-  // border: 1px solid $brown;
   border-radius: 5px;
   padding-left: .8em;
   padding-top: .5em;
-  margin-top: 2vh;
-  width: 94vw;
+  margin-top: 1vh;
   max-height: 50vh;
   max-width: 1545px;
   overflow: scroll;

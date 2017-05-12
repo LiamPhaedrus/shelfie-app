@@ -15,7 +15,10 @@ div.callout {
 .wip-case {
   margin-bottom: 1vh;
   border: 1px solid grey;
-  height: 11vh;
+  min-height: 3em;
+  .case-shelf {
+    border-bottom: 1px solid grey;
+  }
 }
 
 .search-move {

@@ -53,3 +53,11 @@ button.button, input.button, a.button {
     width: 120px;
   }
 }
+
+.button.plus {
+  border-right: 4px solid lighten($dark-blue, 7%);
+}
+
+.button.empty {
+  margin-left: 1em;
+}

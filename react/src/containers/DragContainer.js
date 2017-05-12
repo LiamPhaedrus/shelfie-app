@@ -81,7 +81,7 @@ class DragContainer extends Component {
       if (shelf.id === parseFloat(`${this.state.selectedShelf}`)) {
         return(
           <div key={"shelf" + shelf.id} className='row columns'>
-          <h3>{shelf.name}</h3><PlusMinus id={shelf.id}/>
+            <h3>{shelf.name}</h3><PlusMinus id={shelf.id}/>
           <ShelfContainer
             id={shelf.id}
             size={shelf.size}
@@ -94,9 +94,11 @@ class DragContainer extends Component {
 
     })
     return(
-      <div className='bg-fade'>
+      <div className='bg-fade-more'>
         <div className="columns dnd-container">
-          <BackButton />
+          <div className='row columns'>
+            <BackButton />
+          </div>
           <SelectShelf
             bookcases={this.state.bookcases}
             handleShelf={this.handleShelf}

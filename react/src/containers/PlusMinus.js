@@ -32,11 +32,9 @@ class PlusMinus extends Component {
         <button className="button minus" onClick={this.handleMinus}>
           -
         </button>
-        <div>
-          <button className="button empty" onClick={this.handleEmptyShelf}>
-            Empty this shelf
-          </button>
-        </div>
+        <button className="button empty" onClick={this.handleEmptyShelf}>
+          Empty this shelf
+        </button>
       </span>
     )
   }

@@ -7,10 +7,8 @@ import NewCase from './containers/NewCase'
 import DashHomePage from './containers/DashHomePage'
 import DragContainer from './containers/DragContainer'
 import ShowCases from './containers/ShowCases'
-import SearchContainer from './containers/SearchContainer'
 import BookShowContainer from './containers/BookShowContainer'
 import CaseContainer from './containers/CaseContainer'
-import ApiSearchContainer from './containers/ApiSearchContainer'
 
 const App = (props) => {
   return (
@@ -22,8 +20,6 @@ const App = (props) => {
         <Route path='/shelves' component={DragContainer} />
         <Route path='/cases/new' component={NewCase} />
         <Route path='/cases' component={ShowCases} />
-        <Route path='/books/search' component={SearchContainer} />
-        <Route path='/search/goodreads' component={ApiSearchContainer} />
         <Route path='/books/:id' component={BookShowContainer} />
         <Route path='/cases/:id' component={CaseContainer} />
       </Route>
