@@ -11,16 +11,18 @@ const BookListTile = (props) => {
     showImage = <img src={props.coverPhoto} alt={`${props.title}`} />
   }
   return(
-    <div className='media-object book-list-tile'>
-      <div className='media-object-section'>
-        <div className='thumbnail'>
-          {showImage}
+    <Link to={`/books/${props.id}`} className='medium-6 columns'>
+      <div className='media-object book-list-tile'>
+        <div className='media-object-section'>
+          <div className='thumbnail'>
+            {showImage}
+          </div>
+        </div>
+        <div className='media-object-section'>
+          <p><span className='title-strong'>{props.title}</span> {showAuthor}</p>
         </div>
       </div>
-      <div className='media-object-section'>
-        <p><span className='title-strong'>{props.title}</span> {showAuthor}</p>
-      </div>
-    </div>
+    </Link>
   )
 }
 

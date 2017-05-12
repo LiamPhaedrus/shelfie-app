@@ -11,60 +11,20 @@ $offwhite: #f8f3eb;
   left: 0;
   right: 0;
 }
-//
-// .book-list-tile {
-//   margin-bottom: 10px;
-//   // background: $offwhite;
-//   // border-radius: 7px;
-//   a {
-//     background: $offwhite;
-//     // padding-top: 50px;
-//     // padding-bottom: 65px;
-//     img {
-//       max-width: 70px;
-//     }
-//   }
-// }
 
-
-.book-list-tile {
-  .media-object-section {
-    vertical-align: middle;
-    background: $offwhite;
-  }
-}
 .media-object.book-list-tile {
   background: $offwhite;
+  &:hover {
+    background: $beige;
+  }
+  .media-object-section {
+    vertical-align: middle;
+  }
   .thumbnail {
-    border: solid 4px #f8f3eb;
+    border: solid 4px $offwhite;
   }
   img {
-    max-width: 70px;
+    width: 70px;
+    height: 115px;
   }
 }
-
-// .book-list-outer {
-//   margin-bottom: 10px;
-//   .book-list-tile {
-//     background: $offwhite;
-//     border-radius: 7px;
-//
-//     // padding-right: 50vw;
-//     // padding-top: 50px;
-//     // padding-left: 10px;
-//     height: 180px;
-//     img {
-//       max-width: 70px;
-//     }
-//     // display: block;
-//     // margin: auto;
-//     // text-align: center;
-//     // height: 100px;
-//     // width: 180px;
-//     // line-height: 100px;
-//     // &:hover {
-//     //   color: $dark-blue;
-//     //   background-color: rgba($offwhite, .95);
-//     // }
-//   }
-// }

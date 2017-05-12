@@ -53,7 +53,7 @@ class BooksContainer extends Component {
           <h1>Your Books</h1>
           <Link to='books/new' className="button react-left">Add Book</Link>
           <Link to='/' className="button">Home</Link>
-          <div className='row'>
+          <div className='row columns'>
             {bookList}
           </div>
           <a href='#top-all-books' className="button react-left">Top</a>
