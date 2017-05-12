@@ -20,6 +20,7 @@ div.callout {
 
 .input-group-label.search-fix {
   border: none;
-  background: $offwhite;
+  background-color: rgba($offwhite, .01);
+  // background: $offwhite;
   color: $brown;
 }

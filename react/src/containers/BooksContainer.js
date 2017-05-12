@@ -37,15 +37,6 @@ class BooksContainer extends Component {
           selectedBookId={this.state.selectedBookId}
         />
       )
-      // let author = ''
-      // if (book.author) {
-      //   author = `by ${book.author}`
-      // }
-      // return(
-      //   <li key={"book" + book.id}><Link to={`/books/${book.id}`} className="book-link">
-      //     <span className='title-strong'>{book.title}</span> {author}</Link>
-      //   </li>
-      // )
     })
     return(
       <div className='bg-fade'>

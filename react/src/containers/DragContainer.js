@@ -93,19 +93,21 @@ class DragContainer extends Component {
 
     })
     return(
-      <div className="dnd-container">
-        <BackButton />
-        <SelectShelf
-          bookcases={this.state.bookcases}
-          handleShelf={this.handleShelf}
-          selectedShelf={this.state.selectedShelf}
-        />
-        {shelves}
-        <MoveBookList
-          books={this.state.books}
-          handleAdd={this.handleSpotPlace}
-          id={null}
-        />
+      <div className='bg-fade'>
+        <div className="columns dnd-container">
+          <BackButton />
+          <SelectShelf
+            bookcases={this.state.bookcases}
+            handleShelf={this.handleShelf}
+            selectedShelf={this.state.selectedShelf}
+          />
+          {shelves}
+          <MoveBookList
+            books={this.state.books}
+            handleAdd={this.handleSpotPlace}
+            id={null}
+          />
+        </div>
       </div>
     )
   }
