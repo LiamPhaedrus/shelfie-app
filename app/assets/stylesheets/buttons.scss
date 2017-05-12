@@ -23,7 +23,8 @@ button.button, input.button, a.button {
 .dash-outer {
   margin: 1em auto;
   .dash-tile {
-    border: 2px solid $dark-blue;
+    background: rgba($offwhite, .85);
+    // border: 2px solid $dark-blue;
     border-radius: 7px;
     display: block;
     margin: auto;
@@ -31,14 +32,17 @@ button.button, input.button, a.button {
     height: 100px;
     width: 180px;
     line-height: 100px;
-    background-color: $offwhite;
+    &:hover {
+      color: $dark-blue;
+      background-color: rgba($offwhite, .95);
+    }
   }
 }
 
 // #dash-allbooks {
 //   background-image: image-url('allbooks.jpg');
 // }
-// 
+//
 // .home-grid {
 //   max-width: 950px;
 //   margin: auto;

@@ -65,6 +65,18 @@ span.title-strong {
   max-width: 500px;
 }
 
-.home-react > h1 {
-  text-align: center;
+.home-react {
+  h1 {
+    text-align: center;
+    margin-top: 1vh;
+    span {
+      padding-left: 2vw;
+      padding-right: 2vw;
+      color: $pop-blue;
+      background-color: rgba($dark-blue, .8);
+      // color: $brown;
+      // background-color: rgba($offwhite, .85)
+    }
+  }
 }
+// rgba(248, 243, 235, 0.85)

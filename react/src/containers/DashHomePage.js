@@ -8,7 +8,7 @@ class DashHomePage extends Component {
   render () {
     return(
       <div className="home-react">
-        <h1>Dashboard</h1>
+        <h1><span>Shelfie</span></h1>
         <div className='row'>
           <div className='home-grid'>
             <div className='dash-outer medium-4 xlarge-2 columns'>
