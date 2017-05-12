@@ -57,7 +57,7 @@ class BooksContainer extends Component {
     return(
       <div className='bg-fade'>
         <div className='columns'>
-          <h1>Your Books</h1>
+          <h1 id='top-all-books'>Your Books</h1>
           <div className='show-for-small-only'>
             <h1>Search Your Books</h1>
             <div className='small-12 columns'>{search}</div>
