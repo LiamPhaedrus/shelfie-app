@@ -24,7 +24,6 @@ button.button, input.button, a.button {
   margin: 1em auto;
   .dash-tile {
     background: rgba($offwhite, .85);
-    // border: 2px solid $dark-blue;
     border-radius: 7px;
     display: block;
     margin: auto;
@@ -39,15 +38,6 @@ button.button, input.button, a.button {
   }
 }
 
-// #dash-allbooks {
-//   background-image: image-url('allbooks.jpg');
-// }
-//
-// .home-grid {
-//   max-width: 950px;
-//   margin: auto;
-// }
-
 .book-tile {
   margin-bottom: 1em;
   padding: 1em;
@@ -56,7 +46,6 @@ button.button, input.button, a.button {
   text-align: center;
   word-wrap: break-word;
   &:hover {
-    // color: lighten($pop-blue, 10%);
     background-color: $beige;
   }
   img {

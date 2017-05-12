@@ -27,7 +27,7 @@ class DashHomePage extends Component {
               </Link>
             </div>
             <div className='dash-outer medium-4 xlarge-2 columns'>
-              <Link to='#' className='dash-tile'>
+              <Link to='/books/new' className='dash-tile'>
                 Add Books
               </Link>
             </div>

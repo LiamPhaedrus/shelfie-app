@@ -51,19 +51,21 @@ class BooksContainer extends Component {
       )
     })
     return(
-      <div id="top-all-books">
-        <h1>Your Books</h1>
-        <a href='#addbook' className="button react-left">Add Book</a>
-        <BackButton />
-        <ul>
-          {bookList}
-        </ul>
-        <div id='addbook'>
-          <NewBookFormContainer
-            addNewBook={this.addNewBook}
-          />
+      <div className="row top-all-books">
+        <div className='columns'>
+          <h1 className='heading-move'>Your Books</h1>
+          <a href='#addbook' className="button react-left">Add Book</a>
+          <BackButton />
+          <ul>
+            {bookList}
+          </ul>
+          <div id='addbook'>
+            <NewBookFormContainer
+              addNewBook={this.addNewBook}
+            />
+          </div>
+          <a href='#top-all-books' className="button react-left">Top</a><BackButton />
         </div>
-        <a href='#top-all-books' className="button react-left">Top</a><BackButton />
       </div>
     )
   }
