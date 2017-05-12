@@ -46,6 +46,9 @@ a {
 
 .top-bar {
   background-color: $beige;
+  .unbold {
+    font-weight: normal;
+  }
 }
 
 .top-bar ul {

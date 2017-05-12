@@ -8,8 +8,11 @@ $offwhite: #f8f3eb;
   background-color: rgba($offwhite, .75);
   padding-top: 1vh;
   padding-bottom: 1vh;
-  border-radius: 7px;
+  border-radius: 10px;
   margin-top: 5vh;
+  label {
+    color: $brown;
+  }
   input[type='submit'] {
     background-color: $dark-blue;
     color: $pop-blue;
