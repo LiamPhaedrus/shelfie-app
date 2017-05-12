@@ -22,6 +22,20 @@ class NewBookFormContainer extends Component {
     this.validateTitle = this.validateTitle.bind(this)
     this.validateISBN = this.validateISBN.bind(this)
     this.handleImageChange = this.handleImageChange.bind(this)
+    this.handleFetch = this.handleFetch.bind(this)
+  }
+
+  handleFetch (formPayload) {
+    fetch('/api/v1/books', {
+      credentials: 'include',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => response.json())
+    .then(parsed => {
+      browserHistory.push(`/books`);
+    })
   }
 
   handleSubmit (event) {
@@ -38,8 +52,7 @@ class NewBookFormContainer extends Component {
           cover_photo: this.state.image
         }
       }
-      this.props.addNewBook(payload)
-      this.handleFormClear(event)
+      this.handleFetch(payload)
     }
   }
 
@@ -152,6 +165,7 @@ class NewBookFormContainer extends Component {
           <div className="button-group">
             <button className="button" onClick={this.handleFormClear}>Clear</button>
             <input className="button" type="submit" value="Submit" />
+            <BackButton />
           </div>
         </form>
       </div>
