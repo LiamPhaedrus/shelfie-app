@@ -1,22 +1,22 @@
 $dark-blue: #151a51;
 $pop-blue: #6cd4f6;
-$brown: #6D3109;
+$brown: #6d3109;
 $beige: #eae2cf;
 $offwhite: #f8f3eb;
 
 .bg-fade-more {
-  background-color: rgba($offwhite, .8);
+  background-color: rgba($offwhite, 0.8);
+  left: 0;
   min-height: 95vh;
   position: absolute;
-  left: 0;
   right: 0;
 }
 
 .shelf {
   height: 153px;
-  width: 97vw;
   overflow-x: auto;
   overflow-y: hidden;
+  width: 97vw;
 }
 
 .spot {
@@ -26,21 +26,26 @@ $offwhite: #f8f3eb;
   height: 137px;
   vertical-align: bottom;
   min-width: 80px;
+
   img {
     height: 133px;
     width: 80px;
   }
+
   &:nth-of-type(odd) {
     background: $beige;
-    border-right: 1px dotted $brown;
     border-left: 1px dotted $brown;
+    border-right: 1px dotted $brown;
   }
+
   &:nth-of-type(even) {
     background: $beige;
   }
+
   &:first-of-type {
     border-left: 2px solid $brown;
   }
+
   &:last-of-type {
     border-right: 2px solid $brown;
   }
@@ -53,11 +58,11 @@ $offwhite: #f8f3eb;
 .booklist-nospot {
   background-color: $beige;
   border-radius: 5px;
-  padding-left: .8em;
-  padding-top: .5em;
   margin-top: 1vh;
   max-height: 50vh;
   max-width: 1545px;
   overflow: scroll;
   overflow-x: hidden;
+  padding-left: 0.8em;
+  padding-top: 0.5em;
 }

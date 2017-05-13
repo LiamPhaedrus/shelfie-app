@@ -55,13 +55,14 @@ span.title-strong {
 
 .home-react {
   h1 {
-    text-align: center;
     margin-top: 1vh;
+    text-align: center;
+
     span {
+      background-color: rgba($dark-blue, 0.8);
+      color: $pop-blue;
       padding-left: 2vw;
       padding-right: 2vw;
-      color: $pop-blue;
-      background-color: rgba($dark-blue, .8);
     }
   }
 }
