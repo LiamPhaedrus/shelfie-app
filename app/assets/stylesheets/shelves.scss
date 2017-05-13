@@ -13,16 +13,17 @@ $offwhite: #f8f3eb;
 }
 
 .shelf {
-  height: 150px;
+  height: 153px;
   width: 97vw;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
 .spot {
-  border-bottom: 1px solid $brown;
+  border-bottom: 2px solid $brown;
+  border-top: 2px solid $brown;
   display: table-cell;
-  height: 133px;
+  height: 137px;
   vertical-align: bottom;
   min-width: 80px;
   img {
@@ -30,10 +31,18 @@ $offwhite: #f8f3eb;
     width: 80px;
   }
   &:nth-of-type(odd) {
-    background: rgba($pop-blue, .2);
+    background: $beige;
+    border-right: 1px dotted $brown;
+    border-left: 1px dotted $brown;
   }
   &:nth-of-type(even) {
-    background: rgba(darken($pop-blue, 50%), .2);
+    background: $beige;
+  }
+  &:first-of-type {
+    border-left: 2px solid $brown;
+  }
+  &:last-of-type {
+    border-right: 2px solid $brown;
   }
 }
 

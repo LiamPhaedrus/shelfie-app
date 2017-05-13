@@ -33,24 +33,33 @@ button.button, input.button, a.button {
     line-height: 100px;
     &:hover {
       color: $dark-blue;
-      background-color: rgba($offwhite, .95);
+      background-color: $offwhite;
     }
   }
 }
 
-.book-tile {
+.case-tile {
   margin-bottom: 1em;
   padding: 1em;
-  background-color: rgba($offwhite, .5);
+  background-color: $beige;
   border: 1px solid $dark-blue;
   border-radius: 5px;
   text-align: center;
   word-wrap: break-word;
   &:hover {
-    background-color: $beige;
+    background-color: rgba($offwhite, .5);
   }
   img {
     width: 120px;
+  }
+  .case-shelf {
+    border: 1px solid $brown;
+    border-top: none;
+    list-style: none;
+    &:first-of-type {
+      border: 1px solid $brown;
+      margin-top: 1em;
+    }
   }
 }
 

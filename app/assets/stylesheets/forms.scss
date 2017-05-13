@@ -13,11 +13,12 @@ div.callout {
 }
 
 .wip-case {
-  margin-bottom: 1vh;
-  border: 1px solid grey;
-  min-height: 3em;
   .case-shelf {
-    border-bottom: 1px solid grey;
+    border: 1px solid grey;
+    border-top: none;
+    &:first-of-type {
+      border: 1px solid grey;
+    }
   }
 }
 

@@ -7,7 +7,17 @@ class ShowCases extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      cases: []
+      cases: [],
+      selectedCaseId: ''
+    }
+    this.handleSelectCase = this.handleSelectCase.bind(this)
+  }
+
+  handleSelectCase (id) {
+    if (id === this.state.selectedCaseId) {
+      this.setState({ selectedCaseId: '' })
+    } else {
+      this.setState({ selectedCaseId: id })
     }
   }
 
@@ -31,16 +41,26 @@ class ShowCases extends Component {
           key={"bookcase" + bookcase.id}
           id={bookcase.id}
           name={bookcase.name}
+          location={bookcase.location}
+          shelves={bookcase.shelves}
           shelfCount={bookcase.shelves.length}
+          handleClick={this.handleSelectCase}
+          selectedCaseId={this.state.selectedCaseId}
         />
       )
     })
+
     return(
       <div className='bg-fade'>
         <div className='columns'>
           <h1>Bookcases</h1>
-          {bookcases}
-          <BackButton />
+          <Link to='cases/new' className="button react-left">Add Case</Link>
+          <div className='row columns'>
+            {bookcases}
+          </div>
+          <div className='row columns'>
+            <BackButton />
+          </div>
         </div>
       </div>
     )

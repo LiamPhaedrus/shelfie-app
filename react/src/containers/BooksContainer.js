@@ -33,20 +33,6 @@ class BooksContainer extends Component {
   }
 
   render () {
-    // let bookList = this.state.books.map(book => {
-    //   return(
-    //     <BookListTile
-    //       key={'book' + book.id}
-    //       id={book.id}
-    //       title={book.title}
-    //       author={book.author}
-    //       isbn={book.isbn}
-    //       coverPhoto={book.cover_photo}
-    //       searchTerm={this.state.searchTerm}
-    //     />
-    //   )
-    // })
-
     let search = <TextField
       content={this.state.searchTerm}
       label=""
