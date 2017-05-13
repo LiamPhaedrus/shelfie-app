@@ -1,0 +1,31 @@
+$dark-blue: #151a51;
+$pop-blue: #6cd4f6;
+$brown: #6D3109;
+$beige: #eae2cf;
+$offwhite: #f8f3eb;
+
+.devise-background {
+  background-color: rgba($offwhite, .75);
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 10px;
+  margin-top: 5vh;
+  label {
+    color: $brown;
+  }
+
+  input[type='submit'] {
+    background-color: $dark-blue;
+    color: $pop-blue;
+
+    &:hover {
+      background-color: lighten($dark-blue, 7%);
+      color: lighten($pop-blue, 10%);
+    }
+
+    &:focus {
+      background-color: lighten($dark-blue, 7%);
+      color: lighten($pop-blue, 10%);
+    }
+  }
+}

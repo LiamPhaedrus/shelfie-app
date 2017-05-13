@@ -9,9 +9,11 @@ class CaseContainer extends Component {
 
   render () {
     return(
-      <div>
-        <h1>Placeholder for a case page</h1>
-        <BackButton />
+      <div className='bg-fade'>
+        <div className='columns'>
+          <h1>Placeholder for a case page</h1>
+          <BackButton />
+        </div>
       </div>
     )
   }

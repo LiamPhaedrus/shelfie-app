@@ -1,8 +1,8 @@
-$dark-blue: #151A51;
-$pop-blue: #6CD4F6;
+$dark-blue: #151a51;
+$pop-blue: #6cd4f6;
 $brown: #6D3109;
-$beige: #EAE2CF;
-$offwhite: #F8F3EB;
+$beige: #eae2cf;
+$offwhite: #f8f3eb;
 
 button.button, input.button, a.button {
   background-color: $dark-blue;
@@ -20,21 +20,53 @@ button.button, input.button, a.button {
   }
 }
 
-.dash-tile {
-  border: 2px solid $dark-blue;
-  padding: 25px;
-}
-
 .dash-outer {
-  margin-top: 5em;
-  // border: 2px solid $dark-blue;
+  margin: 1em auto;
+  .dash-tile {
+    background: rgba($offwhite, .85);
+    border-radius: 7px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    height: 100px;
+    width: 180px;
+    line-height: 100px;
+    &:hover {
+      color: $dark-blue;
+      background-color: $offwhite;
+    }
+  }
 }
 
-.book-tile {
+.case-tile {
   margin-bottom: 1em;
   padding: 1em;
+  background-color: $beige;
   border: 1px solid $dark-blue;
   border-radius: 5px;
   text-align: center;
   word-wrap: break-word;
+  &:hover {
+    background-color: rgba($offwhite, .5);
+  }
+  img {
+    width: 120px;
+  }
+  .case-shelf {
+    border: 1px solid $brown;
+    border-top: none;
+    list-style: none;
+    &:first-of-type {
+      border: 1px solid $brown;
+      margin-top: 1em;
+    }
+  }
+}
+
+.button.plus {
+  border-right: 4px solid lighten($dark-blue, 7%);
+}
+
+.button.empty {
+  margin-left: 1em;
 }

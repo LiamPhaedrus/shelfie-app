@@ -1,15 +1,22 @@
 import React, { Component }  from 'react'
 import { Link } from 'react-router'
-import BackButton from '../components/BackButton'
-import NewBookFormContainer from './NewBookFormContainer'
+import TextField from '../components/TextField'
+import BookListTile from '../components/BookListTile'
+import ResultsTileContainer from '../containers/ResultsTileContainer'
 
 class BooksContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      books: []
+      books: [],
+      searchTerm: ''
     }
-    this.addNewBook = this.addNewBook.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
+  handleSearch (event) {
+    event.preventDefault()
+    this.setState({ searchTerm: event.target.value })
   }
 
   componentDidMount () {
@@ -25,43 +32,39 @@ class BooksContainer extends Component {
       })
   }
 
-  addNewBook (formPayload) {
-    fetch('/api/v1/books', {
-      credentials: 'include',
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formPayload)
-    })
-    .then(response => response.json())
-    .then(parsed => {
-      this.setState({ books: [...this.state.books, ...parsed.book] })
-    })
-  }
-
   render () {
-    let bookList = this.state.books.map(book => {
-      let author = ''
-      if (book.author) {
-        author = `by ${book.author}`
-      }
-      return(
-        <li key={"book" + book.id}><span className='title-strong'>{book.title}</span> {author}</li>
-      )
-    })
+    let search = <TextField
+      content={this.state.searchTerm}
+      label=""
+      name="title"
+      handlerFunction={this.handleSearch}
+      placeholder="Search by title, author, or ISBN"
+    />
     return(
-      <div id="top-all-books">
-        <h1>Your Books</h1>
-        <a href='#addbook' className="button react-left">Add Book</a>
-        <BackButton />
-        <ul>
-          {bookList}
-        </ul>
-        <div id='addbook'>
-          <NewBookFormContainer
-            addNewBook={this.addNewBook}
-          />
+      <div className='bg-fade'>
+        <div className='columns'>
+          <h1 id='top-all-books'>Your Books</h1>
+          <div className='show-for-small-only'>
+            <h1>Search Your Books</h1>
+            <div className='small-12 columns'>{search}</div>
+          </div>
+          <div className='hide-for-small-only row medium-9 large-7 columns search-move'>
+            <div className='input-group'>
+              <span className='input-group-label search-fix'><h2>Search</h2></span>
+              <span className='input-group-field search-fix'>{search}</span>
+            </div>
+          </div>
+          <Link to='books/new' className="button react-left">Add Book</Link>
+          <Link to='/' className="button">Home</Link>
+          <div className='row columns'>
+            <ResultsTileContainer
+              books={this.state.books}
+              searchTerm={this.state.searchTerm}
+            />
+          </div>
+          <a href='#top-all-books' className="button react-left">Top</a>
+          <Link to='/' className="button">Home</Link>
         </div>
-        <a href='#top-all-books' className="button react-left">Top</a><BackButton />
       </div>
     )
   }

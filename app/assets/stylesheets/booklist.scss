@@ -1,0 +1,30 @@
+$dark-blue: #151a51;
+$pop-blue: #6cd4f6;
+$brown: #6D3109;
+$beige: #eae2cf;
+$offwhite: #f8f3eb;
+
+.bg-fade {
+  background-color: rgba($offwhite, .78);
+  min-height: 95vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.media-object.book-list-tile {
+  background: $offwhite;
+  &:hover {
+    background: $beige;
+  }
+  .media-object-section {
+    vertical-align: middle;
+  }
+  .thumbnail {
+    border: solid 4px $offwhite;
+  }
+  img {
+    height: 115px;
+    width: 70px;
+  }
+}

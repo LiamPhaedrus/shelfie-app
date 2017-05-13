@@ -5,6 +5,7 @@ import ShelfContainer from './ShelfContainer'
 import MoveBookList from './MoveBookList'
 import BackButton from '../components/BackButton'
 import SelectShelf from './SelectShelf'
+import PlusMinus from './PlusMinus'
 
 class DragContainer extends Component {
   constructor (props) {
@@ -38,7 +39,6 @@ class DragContainer extends Component {
   }
 
   handleSpotPlace (book, spot, shelf) {
-    console.log(book, spot, shelf)
     let findBook = (obj) => {
       return obj.id === book
     }
@@ -56,7 +56,6 @@ class DragContainer extends Component {
   }
 
   handleShelf (event) {
-    console.log(event.target.value)
     this.setState({ selectedShelf: event.target.value })
   }
 
@@ -71,42 +70,47 @@ class DragContainer extends Component {
     let whichShelf = (obj) => {
       return obj.id === this.state.selectedShelf
     }
-    let bob = this.state.shelves.find(whichShelf)
 
+    let bob = this.state.shelves.find(whichShelf)
     let shelves = this.state.shelves.map(shelf => {
 
       let filterById = (obj) => {
         return shelf.bookIds.includes(obj.id)
       }
       let shelvedBooks = this.state.books.filter(filterById)
-      if (shelf === bob) {
+      if (shelf.id === parseFloat(`${this.state.selectedShelf}`)) {
         return(
           <div key={"shelf" + shelf.id} className='row columns'>
-          <h3>{shelf.name}</h3>
+            <h3>{shelf.name}</h3><PlusMinus id={shelf.id}/>
           <ShelfContainer
-          id={shelf.id}
-          size={shelf.size}
-          books={shelvedBooks}
-          handleAdd={this.handleSpotPlace}
+            id={shelf.id}
+            size={shelf.size}
+            books={shelvedBooks}
+            handleAdd={this.handleSpotPlace}
           />
           </div>
         )
       }
+
     })
     return(
-      <div className="dnd-container">
-        <BackButton />
-        <SelectShelf
-          bookcases={this.state.bookcases}
-          handleShelf={this.handleShelf}
-          selectedShelf={this.state.selectedShelf}
-        />
-        {shelves}
-        <MoveBookList
-          books={this.state.books}
-          handleAdd={this.handleSpotPlace}
-          id={null}
-        />
+      <div className='bg-fade-more'>
+        <div className="columns dnd-container">
+          <div className='row columns'>
+            <BackButton />
+          </div>
+          <SelectShelf
+            bookcases={this.state.bookcases}
+            handleShelf={this.handleShelf}
+            selectedShelf={this.state.selectedShelf}
+          />
+          {shelves}
+          <MoveBookList
+            books={this.state.books}
+            handleAdd={this.handleSpotPlace}
+            id={null}
+          />
+        </div>
       </div>
     )
   }

@@ -14,8 +14,10 @@
  *= require_self
  *= require foundation_and_overrides
  *= require main.scss
+ *= require devisepage.scss
  *= require buttons.scss
  *= require forms.scss
  *= require shelves.scss
+ *= require booklist.scss
 
  */

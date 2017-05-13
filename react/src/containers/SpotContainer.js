@@ -85,7 +85,7 @@ class SpotContainer extends Component {
   render () {
     const { position } = this.props
     const { isOver, canDrop, connectDropTarget, handleAdd } = this.props
-    let books = this.props.books.map(book=> {
+    let bookShow = this.props.books.map(book=> {
       return(
         <Book
           key={"book" + book.id}
@@ -97,7 +97,7 @@ class SpotContainer extends Component {
     })
     return connectDropTarget (
       <div className="spot">
-        {books}
+        {bookShow}
       </div>
     )
   }

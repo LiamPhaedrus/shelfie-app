@@ -7,12 +7,12 @@ const BookDetails = (props) => {
 
   let showImage = ''
   if (info.cover_photo) {
-    showImage = <img src={info.cover_photo} alt={`${info.title}`} className='detail-cover medium-6 columns' />
+    showImage = <img src={info.cover_photo} alt={`${info.title}`} className='detail-cover medium-6 columns end' />
   }
 
   if (info.location_info === '') {
     bookStuff = <div>
-      <div className='medium-5 columns'>
+      <div className='medium-6 columns'>
         <h1><span className='title-strong'>{info.title}</span></h1>
         <h3>by {info.author}</h3>
         <p>ISBN - {info.isbn}</p>

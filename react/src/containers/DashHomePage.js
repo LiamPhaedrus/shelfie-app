@@ -8,25 +8,39 @@ class DashHomePage extends Component {
   render () {
     return(
       <div className="home-react">
-        <h1>Dashboard</h1>
+        <h1><span>Shelfie</span></h1>
         <div className='row'>
-          <div className='dash-outer medium-4 columns'>
-            <Link to='/books' className='dash-tile'>Your Books</Link>
-          </div>
-          <div className='dash-outer medium-4 columns'>
-            <Link to='/shelves' className='dash-tile'>Move Books</Link>
-          </div>
-          <div className='dash-outer medium-4 columns'>
-            <Link to='/books/search' className='dash-tile'>Search Books</Link>
-          </div>
-          <div className='dash-outer medium-4 columns'>
-            <Link to='#' className='dash-tile'>Thing Two</Link>
-          </div>
-          <div className='dash-outer medium-4 columns'>
-            <Link to='/cases/new' className='dash-tile'>Build Bookcase</Link>
-          </div>
-          <div className='dash-outer medium-4 columns'>
-            <Link to='/cases' className='dash-tile'>See Bookcases</Link>
+          <div className='home-grid'>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='/books' className='dash-tile' id='dash-allbooks'>
+                All Your Books
+              </Link>
+            </div>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='/shelves' className='dash-tile'>
+                Arrange Books
+              </Link>
+            </div>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='/books/new' className='dash-tile'>
+                Add Books
+              </Link>
+            </div>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='/cases' className='dash-tile'>
+                See Bookcases
+              </Link>
+            </div>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='/cases/new' className='dash-tile'>
+                Build Bookcase
+              </Link>
+            </div>
+            <div className='dash-outer medium-4 xlarge-2 columns'>
+              <Link to='#' className='dash-tile'>
+                Lists
+              </Link>
+            </div>
           </div>
         </div>
       </div>

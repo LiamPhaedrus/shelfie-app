@@ -13,7 +13,27 @@ div.callout {
 }
 
 .wip-case {
-  margin-bottom: 1vh;
-  border: 1px solid grey;
-  height: 11vh;
+
+  .case-shelf {
+    border: 1px solid grey;
+    border-top: 0;
+
+    &:first-of-type {
+      border: 1px solid grey;
+    }
+  }
+}
+
+.search-move {
+  float: left;
+}
+
+.input-group-label.search-fix {
+  border: 0;
+  background-color: rgba($offwhite, 0.01);
+  color: $brown;
+}
+
+.input-group-field.search-fix {
+  vertical-align: bottom;
 }
