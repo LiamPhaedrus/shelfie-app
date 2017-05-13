@@ -13,16 +13,19 @@ $offwhite: #f8f3eb;
   label {
     color: $brown;
   }
+
   input[type='submit'] {
     background-color: $dark-blue;
     color: $pop-blue;
+
     &:hover {
-      color: lighten($pop-blue, 10%);
       background-color: lighten($dark-blue, 7%);
+      color: lighten($pop-blue, 10%);
     }
+
     &:focus {
-      color: lighten($pop-blue, 10%);
       background-color: lighten($dark-blue, 7%);
+      color: lighten($pop-blue, 10%);
     }
   }
 }

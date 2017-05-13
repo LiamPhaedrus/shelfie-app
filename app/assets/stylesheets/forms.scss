@@ -13,9 +13,11 @@ div.callout {
 }
 
 .wip-case {
+
   .case-shelf {
     border: 1px solid grey;
-    border-top: none;
+    border-top: 0;
+
     &:first-of-type {
       border: 1px solid grey;
     }
@@ -27,8 +29,8 @@ div.callout {
 }
 
 .input-group-label.search-fix {
-  border: none;
-  background-color: rgba($offwhite, .01);
+  border: 0;
+  background-color: rgba($offwhite, 0.01);
   color: $brown;
 }
 

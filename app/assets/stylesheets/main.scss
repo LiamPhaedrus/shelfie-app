@@ -9,7 +9,7 @@ $offwhite: #F8F3EB;
 body {
   font-family: 'Merriweather', serif;
   color: $brown;
-  background-image: image-url('book-ladder.jpg');
+  background-image: image-url("book-ladder.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,6 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: $dark-blue;
+
   &:hover {
     color: lighten($dark-blue, 16%);
   }
@@ -30,6 +31,7 @@ a {
 
 .top-bar {
   background-color: $beige;
+
   .unbold {
     font-weight: normal;
   }
@@ -48,8 +50,8 @@ span.title-strong {
 }
 
 .detail-cover {
-  margin-top: 1em;
   margin-bottom: 1em;
+  margin-top: 1em;
   max-width: 400px;
 }
 
