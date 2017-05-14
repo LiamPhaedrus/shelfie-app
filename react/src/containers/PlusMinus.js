@@ -10,7 +10,9 @@ class PlusMinus extends Component {
 
   handleEmptyShelf (event) {
     event.preventDefault()
-    confirm('Are you sure you want to remove all the books from the shelf?')
+    if (confirm('Are you sure you want to remove all the books from the shelf?')) {
+      this.props.handleEmptyShelf()
+    }
   }
 
   handlePlus (event) {

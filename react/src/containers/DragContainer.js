@@ -19,6 +19,7 @@ class DragContainer extends Component {
 
     this.handleSpotPlace = this.handleSpotPlace.bind(this)
     this.handleShelf = this.handleShelf.bind(this)
+    this.handleEmptyShelf = this.handleEmptyShelf.bind(this)
   }
 
   componentDidMount () {
@@ -59,6 +60,19 @@ class DragContainer extends Component {
     this.setState({ selectedShelf: event.target.value })
   }
 
+  handleEmptyShelf () {
+    fetch(`api/v1/shelves/${this.state.selectedShelf}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(parsed => {
+      console.log(parsed)
+    })
+  }
+
   render () {
     let unplacedBooks = []
     this.state.books.forEach(book => {
@@ -81,7 +95,11 @@ class DragContainer extends Component {
       if (shelf.id === parseFloat(`${this.state.selectedShelf}`)) {
         return(
           <div key={"shelf" + shelf.id} className='row columns'>
-            <h3>{shelf.name}</h3><PlusMinus id={shelf.id}/>
+            <h3>{shelf.name}</h3>
+            <PlusMinus
+              id={shelf.id}
+              handleEmptyShelf={this.handleEmptyShelf}
+            />
           <ShelfContainer
             id={shelf.id}
             size={shelf.size}

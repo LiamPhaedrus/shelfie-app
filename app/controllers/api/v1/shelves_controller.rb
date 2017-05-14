@@ -1,5 +1,5 @@
 class Api::V1::ShelvesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:index, :show]
+  skip_before_action :verify_authenticity_token, only: [:index, :update]
 
   def index
     if current_user
@@ -42,6 +42,11 @@ class Api::V1::ShelvesController < ApplicationController
       hash[:cover] = placed.book.cover_photo
       hash[:spot] = placed.spot
       hash[:shelfId] = placed.shelf_id
+      if placed.shelf
+        hash[:location] = "#{placed.shelf.case.name} at #{placed.shelf.case.location} - #{placed.shelf.name}"
+      else
+        hash[:location] = ''
+      end
       books << hash
     end
     books
