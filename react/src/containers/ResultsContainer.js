@@ -26,7 +26,6 @@ class ResultsContainer extends Component {
       this.setState({
         books: parsed.books
       })
-      console.log(parsed)
     })
   }
 

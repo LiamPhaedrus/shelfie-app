@@ -22,7 +22,6 @@ class BookShowContainer extends Component {
     })
     .then(response=> response.json())
     .then(parsed=> {
-      console.log(parsed)
       this.setState({
         book: parsed
       })

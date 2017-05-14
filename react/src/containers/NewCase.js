@@ -81,7 +81,7 @@ class NewCase extends Component {
     })
     return(
       <div className='bg-fade'>
-        <div className='columns'>
+        <div className='medium-10 medium-centered columns'>
           <div className='build-case'>
             <h1>Build Bookcase</h1>
             <form className='callout' onSubmit={this.handleSubmitCase}>

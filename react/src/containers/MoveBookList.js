@@ -58,6 +58,8 @@ class MoveBookList extends Component {
           author={book.author}
           spot={book.spot}
           shelfId = {book.shelfId}
+          cover={book.cover}
+          location={book.location}
         />
       )
     })
