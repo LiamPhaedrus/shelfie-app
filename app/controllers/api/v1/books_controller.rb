@@ -2,9 +2,15 @@ class Api::V1::BooksController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create, :index]
 
   def index
-    user = current_user
-    books = user.books.order(:title)
-    render json: { books: books }
+    if user_signed_in?
+      user = current_user
+      books = user.books.order(:title)
+      render json: { books: books }
+    else
+      render json: {
+        errors: 'you do not have access to this page'
+      }
+    end
   end
 
   def show
