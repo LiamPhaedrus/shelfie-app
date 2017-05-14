@@ -21,6 +21,11 @@ describe Api::V1::BooksController, type: :controller do
       expect(json_parsed_response["books"]).to have_content(@book.author)
       expect(json_parsed_response["books"]).to have_content(@book_two.title)
     end
+    
+    it 'it returns nothing if not signed in' do
+      get :index
+      expect(json_parsed_response).to have_content("you do not have access to this page")
+    end
   end
 
   describe "GET #show" do
