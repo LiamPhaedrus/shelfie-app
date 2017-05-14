@@ -61,6 +61,7 @@ class DragContainer extends Component {
   }
 
   handleEmptyShelf () {
+    let payload = { shelf_to_empty: {id: this.state.selectedShelf} }
     fetch(`api/v1/shelves/${this.state.selectedShelf}`, {
       credentials: 'same-origin',
       method: 'PATCH',
@@ -68,8 +69,8 @@ class DragContainer extends Component {
       body: JSON.stringify(payload)
     })
     .then(response => response.json())
-    .then(parsed => {
-      console.log(parsed)
+    .then(data => {
+      this.setState({ shelves: data.shelves, books: data.books })
     })
   }
 

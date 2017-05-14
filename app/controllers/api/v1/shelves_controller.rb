@@ -15,7 +15,23 @@ class Api::V1::ShelvesController < ApplicationController
     end
   end
 
+  def update
+    if current_user
+      shelf = Shelf.find(empty_shelf_params['id'])
+      books_to_remove = shelf.placements
+      books_to_remove.update_all(spot: nil, shelf_id: nil)
+      render json: {
+        shelves: shelves_info(current_user.id),
+        books: book_info(current_user.id)
+      }
+    end
+  end
+
   private
+
+  def empty_shelf_params
+    params.require(:shelf_to_empty).permit(:id)
+  end
 
   def shelves_info(id)
     shelves = []
