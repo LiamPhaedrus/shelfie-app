@@ -23,6 +23,27 @@ describe Api::V1::BooksController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      @book = FactoryGirl.create(:book)
+      @book_two = FactoryGirl.create(:book)
+    end
+
+    it "it returns only one book's data to a signed in user" do
+      Placement.create(user: @user, book: @book)
+      Placement.create(user: @user, book: @book_two)
+      sign_in(@user)
+      get :show, params: { id: @book.id }
+
+      expect(response.status).to eq 200
+
+      expect(json_parsed_response).to have_content(@book.title)
+      expect(json_parsed_response).to_not have_content(@book_two.title)
+    end
+  end
+
+
   describe "POST #create" do
     let(:user) {create :user}
 
