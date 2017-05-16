@@ -19,14 +19,14 @@ const CaseTile = (props) =>  {
   let caseInfo =''
   if (props.selectedCaseId === props.id) {
     caseInfo = <div>
-      <Link to={`/cases/${props.id}`} className="case-link">
+      <div className="case-link">
         {props.location}
         <ul>{showShelves}</ul>
-      </Link>
+      </div>
       </div>
   }
   return(
-    <div className='medium-4 columns'>
+    <div className='medium-4 columns end'>
       <div className='case-tile' onClick={handleClick}>
         <span>{props.name} - with {props.shelfCount} shelves </span>
         {caseInfo}
