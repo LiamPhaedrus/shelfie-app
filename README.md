@@ -1,11 +1,13 @@
 ![Build Status](https://codeship.com/projects/c9a28d60-0f30-0135-f229-3e3b859db2c9/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/LiamPhaedrus/lib-app.png)
 
-#Shelfie
+# Shelfie
 
 This is my capstone, or 'Breakable Toy', for Launch Academy. It is a web application to help users organize their books at home. For those of us who have a ton of books and don't remember where we put them, or still have books in boxes from three moves ago, Shelfie gives the user the ability to better keep track of where their books are.
 
-#Technology
+If you would like to try out [Shelfie](https://shelfie-app.herokuapp.com/), feel free to log in using `shelfie.example@gmail.com` with `lib123` as the password.
+
+# Technology
 
 I integrated the following technologies and features in this project:
 
@@ -14,7 +16,7 @@ I integrated the following technologies and features in this project:
 * Drag and drop library implemented in React for ease of organizing books
 * Foundation with custom CSS styling for responsive design
 
-#Future Development
+# Future Development
 
 I have a variety of ideas for where this app could go next:
 
